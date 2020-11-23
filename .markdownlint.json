@@ -1,5 +1,22 @@
 {
     "line_length": false,
     "no-trailing-punctuation": false,
-    "header-increment": false    
+    "header-increment": false,
+    "MD033": {
+        "allowed_elements": [
+            "a",
+            "br",
+            "div",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "img",
+            "p",
+            "path",
+            "svg"
+        ]
+    },
+    "MD041": false,
+    "MD037": false
 }

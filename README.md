@@ -1,33 +1,71 @@
-# Website
+<h1 align="center">Welcome to Free Learn</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.2.1-blue.svg?cacheSeconds=2592000" />
+  <img alt="Buddy" src="https://app.buddy.works/minnu/docs-site/pipelines/pipeline/293099/badge.svg?token=10cb28f295400b1a3bf04d0351e78873b86db6c726ad5bf31f6c131d58cf3de4"/>
+  <a href="https://github.com/yahu1031/docs-site#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/yahu1031/docs-site/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/yahu1031/docs-site/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/yahu1031/free-learn" />
+  </a>
+  <a href="https://twitter.com/minnu6931" target="_blank">
+    <img alt="Twitter: minnu6931" src="https://img.shields.io/twitter/follow/minnu6931.svg?style=social" />
+  </a>
+  <a href="" target="_blank">
+<img alt="Instagram: _son_of_raghava.rao_" src="https://img.shields.io/badge/instagram-%40__son__of__raghava.rao__-red?style=social&logo=instagram" />
+  </a>
+</p>
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+> Learn for free
 
-## Installation
+### 🏠 [Homepage](https://github.com/yahu1031/docs-site#readme)
 
-```console
-yarn install
+### ✨ [Demo](https://freelearn.vercel.app/)
+
+## Install
+
+```sh
+npm install
 ```
 
-## Local Development
+## Usage
 
-```console
-yarn start
+```sh
+npm run start
 ```
 
-This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
+## Run tests
 
-## Build
+There are no test files to test.
 
-```console
-yarn build
+```sh
+npm run test
 ```
 
-This command generates static content into the `build` directory and can be served using any static content hosting service.
+## Author
 
-## Deployment
+👤 **Minnu**
 
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
+* Twitter: [@minnu6931](https://twitter.com/minnu6931)
+* Github: [@yahu1031](https://github.com/yahu1031)
+* Instagram: [@\_son_of_raghava.rao\_](https://instagram.com/_son_of_raghava.rao_)
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push it to the `gh-pages` branch.
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/yahu1031/docs-site/issues). You can also take a look at the [contributing guide](https://github.com/yahu1031/docs-site/blob/master/CONTRIBUTING.md).
+Every single contribution is very valuble.
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2020 [Minnu](https://github.com/yahu1031).<br />
+This project is [MIT](https://github.com/yahu1031/docs-site/blob/master/LICENSE) licensed.
+
+***
+<p align="center"> Made with 💚, From Minnu. </p> <br />
