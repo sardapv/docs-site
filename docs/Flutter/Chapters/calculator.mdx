@@ -20,7 +20,7 @@ From this aim, we meed to create 2 parts first.
 
 ## Start Coding ##
 
-After creating new project, We are ready to edit and start making changes.
+After creating a new project, We are ready to edit and start making changes.
 
 - Remove `MyHomePage` widget and create a new `StatefulWidget` called **Calculator**.
 
@@ -68,15 +68,15 @@ class _CalculatorState extends State<Calculator> {
 If you run this code it will show you a blank(black) screen. Don't you wonder why?
 
 Because, The container in the `Calculator` Widget isn't wrapped by Scaffold.
-- In Simple terms, `Scaffold` is a drawing sheet on drawing pad called `MaterialApp` which will give 
+- In Simple terms, `Scaffold` is a drawing sheet on a drawing pad called `MaterialApp` which will give 
 material support to the whole app.
 
 ### StatefulWidget ###
 
 The widget whose state can be altered/changed/updated once it is built (mutable state).
-We will be working on them in further process.
+We will be working on them in the further process.
 
-- Coming back to code, Let's edit `Calculator` Widget.
+- Coming back to code, Let's edit the `Calculator` Widget.
 
 ```dart title="main.dart"
 class Calculator extends StatefulWidget {
@@ -93,29 +93,29 @@ class _CalculatorState extends State<Calculator> {
       // A widget that insets its child by sufficient 
       // padding to avoid intrusions by the operating system.
       // The name it-self says that The widget will keep the children
-      // in safe area from overlaying the OS's 
+      // in a safe area from overlaying the OS's 
       // navigation/notification shades/notch screens. 
       body: SafeArea(
         child: Center(
           child: Column(
             children: <Widget>[
               Container(
-                // Height of the container is 30% of it's screen height.
+                // Height of the container is 30% of the screen height.
                 // The name MediaQuery it-self tells that the widget is all about
                 // Media we use. A Query will be providing information on your Query.
                 // So, MediaQuery of size will provide the 
                 // information about the screen's Size.
-                // We need a height of the screen, so we used seice of height(size.height).
+                // We need the height of the screen, so we used size of height(size.height).
                 // To make this container responsive we are 
                 // multiplying the hight with 0.3 times of the screen height.
-                // This code is only for testing purpose. The values may change in future.
+                // This code is only for testing purposes. The values may change in the future.
                 height: 0.3 * MediaQuery.of(context).size.height,
                 width: double.infinity,
                 // For detecting the container we have colored it black.
                 color: Colors.black,
               ),
               Container(
-                // Height of the container is 70% of it's screen height.
+                // Height of the container is 70% of the screen height.
                 // Multiplying the hight with 0.7 times of the screen height
                 height: 0.7 * MediaQuery.of(context).size.height,
                 // Width of the Container is infinite. 
@@ -143,7 +143,7 @@ As we know, Flutter is full of widgets. We will create a Button Widget.
 - Create a new folder **widgets**(name it anything) in **lib** directory and create a file called `buttons.dart` in **widgets** folder.
 
 :::warning
-If the dart files you created aren't in `lib` folder, then the files cannot be read. 
+If the dart files you created aren't in the `lib` folder, then the files cannot be read. 
 
 <img src={useBaseUrl('/img/Flutter/chapter2/tree.png')} height="300"/>
 
@@ -196,7 +196,7 @@ class CustomButtons extends StatelessWidget {
   // Example, If you  haven't passed any String in text value in this widget. 
   // Then it will return a red screen with the error stated below.
    assert(
-          // Condition. If this doesn't satisy this error will be returned.
+          // Condition. If this doesn't satisfy this error will be returned.
           // Give it a try if you like to.
           text != null,
           "Text you provided is null or No text is provided.",
@@ -209,14 +209,14 @@ class CustomButtons extends StatelessWidget {
       height: 70,
       width: 70,
       // ElevatedButton is a new widget on flutter version 1.22.
-      // we pass Text as child to get numbers.
+      // we pass Text as a child to get numbers.
       // We need to decorate the button. 
       child: ElevatedButton(
         // Before using style this way. You must be adding 
         // elevatedButtonTheme in MaterialApp in `main.dart`.
-        // That will be shown in next code block. 
+        // That will be shown in the next code block. 
         style: ElevatedButton.styleFrom(
-          // By using Ternary operator we will write a condition.
+          // By using the Ternary operator we will write a condition.
           // if(buttonColor == null)
           // {
           //  if you haven't passed any color then this 
@@ -229,18 +229,18 @@ class CustomButtons extends StatelessWidget {
           //  buttonColor
           // }
           primary: buttonColor == null ? Colors.white : buttonColor,
-          // As per the app we need border radius to be
+          // As per the app we need border-radius to be
           // circular. So BorderRadius.circular(50) 
-          // will make a cut with radii length arc.
+          // will cut with a radii length arc.
           // This makes the buttons round in shape.
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
         ),
         // We pass the text Constructor value here.
-        // It can't be null cause we wrote assert at constructor.
+        // It can't be null cause we wrote assert at the constructor.
         // so no need to write any condition here.
-        // This is a statefulWidget so you can pass the 
+        // This is a StatefulWidget so you can pass the 
         // constructor value directly. But what if it is a
         // StatefulWidget?
         // Instead text we take widget of text (widget.text).
@@ -283,8 +283,8 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-- Now we are ready to use This widget. In `Caluculator` class we are adding these buttons
-with in `Row`s and `Column`s.
+- Now we are ready to use This widget. In the `Calculator` class we are adding these buttons
+within Rows and Columns.
 
 ```dart title="main.dart"
 class Calculator extends StatefulWidget {
@@ -482,7 +482,7 @@ class _CalculatorState extends State<Calculator> {
 ```
 
 - Write Logic for this UI now. Write a function 
-above the build function with `String` parameter passign in it.
+above the build function with the `String` parameter passing in it.
 
 ```dart title="main.dart"
 class Calculator extends StatefulWidget {
@@ -495,7 +495,7 @@ class _CalculatorState extends State<Calculator> {
   String _result = '';
   
   void numPressed(String text){
-    // OnPressed the button, we will setState
+    // On pressing the button, we will setState
     // _result = _result + text
     // Initially the _result will be null.
     // On button pressed, the text of the button
@@ -519,7 +519,7 @@ class _CalculatorState extends State<Calculator> {
 }  
 ```
 
-- Call `numPressed` in onPressed property of all `CustomButtons` widget. Check what it prints.
+- Call the `numPressed` in the onPressed property of all `CustomButtons` widgets. Check what it prints.
 
 ```dart title="main.dart" {3}
 CustomButtons(
@@ -593,7 +593,7 @@ class _CalculatorState extends State<Calculator> {
     // Evaluating the expression as real numbers.
     double result = expression.evaluate(EvaluationType.REAL, contextModel);
     // when = is pressed, we are setting operation as result and result as
-    // evaluated result and converting that as string.
+    // evaluated the result and converting that as a string.
     setState(() {
       _operation = _result;
       _result = result.toString();
@@ -609,7 +609,7 @@ class _CalculatorState extends State<Calculator> {
 } 
 ```
 
-- As we generally don't use calculator in landscape mode, we will disable the orientation.
+- As we generally don't use the calculator in landscape mode, we will disable the orientation.
 
 ```dart title="main.dart" {4,13-15}
 import 'package:calculator/widgets/button.dart';

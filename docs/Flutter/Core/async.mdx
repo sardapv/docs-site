@@ -6,8 +6,8 @@ id: async
 
 Support for asynchronous programming, with classes such as Future and Stream.
 
-We know asynchronous in the sense, not apperear at the same time. That means, 
-If a process is runinngand the other will keep waiting till it was done.
+We know asynchronous in the sense, not appear at the same time. That means, 
+If a process is running and the other will keep waiting till it was done.
 
 ## Why do we use it? ##
 
@@ -27,7 +27,7 @@ Let us try with an example.
 
 ```java title="main.dart"
 import "dart:async";
-// Let us get current time in seconds for tracking the function.
+// Let us get the current time in seconds for tracking the function.
 String currentTime =
     (DateTime.now().millisecondsSinceEpoch / 1000).round().toString();
 
@@ -72,7 +72,7 @@ Exited
 - Cause It is not waiting to get the value returned. 
 So, Lets make it wait for a while till it gets the value.
 
-- To make it wait we must use asynchronous function. 
+- To make it wait we must use an asynchronous function. 
 That will make the function to complete another function process 
 and use await to make it wait till it gets the correct value(not Instance).
 
@@ -95,9 +95,9 @@ void main() {
 
 printContent() async {
   // We are waiting till the contentText() function returns a value.
-  // When value is returned, That will be stored in a String called content.
-  // We can remove Future here cause, We are getting valid result.
-  // On usage of await function we must use async function to the function.
+  // When the value is returned, That will be stored in a String called content.
+  // We can remove Future here cause, We are getting a valid result.
+  // On the usage of await function we must use async function to the function.
   String content = await contentText();
   print("Data returned from contentText function is - $content");
 }
@@ -122,10 +122,10 @@ Data returned from contentText function is - Hello World
 Exited
 ```
 
-- Without asynchronous function, The return value wil print, 
+- Without asynchronous function, The return value will print, 
 But it prints the Instance not the value and then it prints the `endTime`.
 
-- With using asynchronous function, It returns the `endTime` and then value of text(`Hello World`).
+- By using the asynchronous function, It returns the `endTime` and then the value of the text(`Hello World`).
 
 ## Using Future ##
 
@@ -148,7 +148,7 @@ printContent() {
 }
 ```
 
-Output of this Future Function is,
+The output of this Future Function is,
 
 ```
 Start time : 1606149683
