@@ -12,7 +12,7 @@ module.exports = {
   themeConfig: {
     prism: {
       additionalLanguages: ['dart'],
-      darkTheme: require('prism-react-renderer/themes/Palenight'),
+      darkTheme: require('prism-react-renderer/themes/palenight'),
     },
     navbar: {
       title: 'Free Learn',
@@ -97,7 +97,6 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        themes: ['@docusaurus/theme-classic', '@docusaurus/theme-live-codeblock'],
       },
     ],
   ],
