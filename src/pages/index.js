@@ -46,7 +46,7 @@ function Home() {
             <div class="container">
               <div class="row">
                 <div className="col">
-                  <a href='/docs/python/get-started'>
+                  <a href='/docs/Python/get-started'>
                     <img height='150'
                       src={useBaseUrl('img/python.svg')}
                       alt="Python"/>
