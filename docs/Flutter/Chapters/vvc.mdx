@@ -1,0 +1,239 @@
+---
+title: Virtual Visiting card
+id: vvc
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+## Aim ##
+
+<img src={useBaseUrl('/img/Flutter/chapter1/VVC.svg')} height="300"/>
+
+This is the aim of the first chapter. 
+Before moving to the project let us make our aim simpler and easier.
+For that, we will divide the Card into small parts as shown below.
+
+<img src={useBaseUrl('/img/Flutter/chapter1/partitioned.svg')}/>
+
+- Let us make the card 2 parts. As the part are horizontal, That is a **Row** Widget.
+
+- Now, We again divide the 1st part into 3 parts. As the parts are vertical, That is a **Column** Widget.
+
+> Everything is a Widget in Flutter. Every name of the Widget represents it's property.
+
+## Create Project ##
+
+Create a Flutter project called **Virtual Visiting Card**.
+
+- Follow the same steps we have done in [First-App](/docs/flutter/first-app).
+
+## Start Coding ##
+
+After creating app, [Start running](/docs/flutter/first-app#run-app).
+Now you will be viewing a default app screen.
+
+> We will be working with `StatelessWidget` in this chapter and 
+`StatefulWidget` will be discussed in [Calculator](/docs/flutter/Chapters/calculator).
+
+**Start making changes now**
+
+- Remove the whole code from **main\.dart**.
+
+- Now let's start Code.
+> The information about Widgets will be available in the code itself.
+
+```dart title="main.dart"
+import 'package:flutter/material.dart';
+
+// Main method is calling MyApp widget
+// In flutter everything is a widget.
+void main() {
+  runApp(
+    MyApp(),
+  );
+}
+
+// We are using StatelessWidget cause, 
+// We don't have to setState for any widget/variable.
+// Using material package will allow you to use more features of Material, 
+// such as their set of predefined Icons.
+class MyApp extends StatelessWidget {
+  @override
+  // In the Widget build function with BuildContext,
+  // We are returning a Widget called MaterialApp.
+  Widget build(BuildContext context) {
+    // MaterialApp builds upon a WidgetsApp by adding material-design 
+    // specific functionality, such as AnimatedTheme and GridPaper.
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      // Scaffold implements the basic material design visual layout structure.
+      home: Scaffold(
+        // Widget to center the content.
+        body: Center(
+          // A Text widget that takes a string as data.
+          child: Text(
+            'Hello, World!',
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+```
+
+- This results the `Hello World` string at the center of the screen.
+
+- Instead **Text** widget we use **Container** widget
+
+```dart title="main.dart"
+// SafeArea will not let any element render out of the screen.
+body: SafeArea(
+  // Widget to center the content.
+  child: Center(
+    // A Container widget with a fixed height and infinite width(width = screen width).
+    child: Container(
+      height: 250,
+      width: double.infinity,
+      color: Colors.blue,
+      // Row(Horizontal Alignment of items) Widget will have children.
+      child: Row(
+        // Main axis of the Row is the horizontal axis, 
+        // so the children will be aligned with even space using this property.
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        // Cross axis of the Row is the vertical axis, 
+        // so the children will be aligned vertically center using this property.
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          // Column(Vertical Alignment of items) Widget will have children.
+          Column(
+            // Main axis of the Column is the vertical axis, 
+            // so the children will be aligned center using this property.
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // Cross axis of the Column is the horizontal axis, 
+            // so the children will be aligned horizontally starting using this property.
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              // Text Widget
+              Text('Free Learn'),
+              Text('+91 9876543210'),
+              // The RichText widget displays text that uses multiple different styles.
+              RichText(
+                // A TextSpan object can just have plain text, 
+                // or it can have children TextSpan objects with their 
+                // own styles that (possibly only partially) override 
+                // the style of this object.
+                // Here we used children for the TextSpan widget.
+                text: TextSpan(
+                  children: [
+                    // Here we used text for the TextSpan widget with different styles.
+                    TextSpan(text: 'Contact: '),
+                    TextSpan(text: 'Freelearn@gmail.com'),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          // The name itself represents it as a widget 
+          // used for Avatars(Profile Display Picture).
+          CircleAvatar(
+            maxRadius: 50,
+            minRadius: 40,
+            backgroundColor: Colors.white,
+            backgroundImage: AssetImage('images/logo.png'),
+          ),
+        ],
+      ),
+    ),
+  ),
+),
+```
+
+- So alignment was done and stylish is left now and this is the result.
+
+<img src={useBaseUrl('/img/Flutter/chapter1/result1.jpg')} height="500"/>
+
+```dart title="Text Styling"
+Text(
+  'Free Learn',
+  style: TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+    color: Colors.lightBlueAccent,
+  ),
+),
+Text(
+  '+91 9876543210',
+  style: TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+  ),
+),
+RichText(
+  // A TextSpan object can just have plain text,
+  // or it can have children TextSpan objects with their
+  // own styles that (possibly only partially) override
+  // the style of this object.
+  // Here we used children for the TextSpan widget.
+  text: TextSpan(
+    children: [
+      // Here we used text for the TextSpan widget with different styles.
+      TextSpan(
+        text: 'Contact: ',
+        style: TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+      ),
+      TextSpan(
+        text: 'Freelearn@gmail.com',
+        style: TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+          color: Colors.lightBlueAccent,
+        ),
+      ),
+    ],
+  ),
+),
+```
+
+- Wrap the container with a card for the Shadow effect.
+
+```dart title="Adding a Card, margin, padding to the card"
+child: Card(
+  // Adding margin to the card
+  margin: EdgeInsets.symmetric(horizontal: 20),
+  child: Container(
+    // Added padding to the whole content in the container.
+    padding: EdgeInsets.symmetric(horizontal: 10),
+    height: 200,
+    width: double.infinity,
+    // Row(Horizontal Alignment of items) Widget will have children.
+    child: Row(...),
+  ),
+),
+```
+
+- Also add a card to CircleAvatar.
+
+```dart title="Add Card to CircleAvatar"
+Card(
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(50),
+  ),
+  child: CircleAvatar(
+    maxRadius: 50,
+    minRadius: 40,
+    backgroundColor: Colors.white,
+    backgroundImage: AssetImage('images/logo.png'),
+  ),
+),
+```
+
+## Final Output ##
+
+Here is the final result of what you did.
+
+<img src={useBaseUrl('/img/Flutter/chapter1/final_result.jpg')} height="500"/>

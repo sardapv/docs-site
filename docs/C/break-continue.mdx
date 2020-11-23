@@ -1,0 +1,91 @@
+---
+title: Break - Continue
+---
+
+### Break
+
+The break statement ends the loop immediately when it is found.
+
+Eg:
+```c
+#include <stdio.h>
+
+int main() {
+	int a, sum = 0;
+	// Sum of 10 or fewer numbers
+	for (int i = 1; i <= 10; i++) {
+		printf("Enter number%d: ", i);
+		scanf("%d", &a);
+		// if the user enters 0, break the loop
+		if (a <= 0) {
+				break;
+		}
+		// sum = sum + a
+		sum += a;
+	}
+	printf("Sum = %d", sum);
+	return 0;
+}
+```
+
+- Here The code is the same as we have seen before. But what changed?
+- We have added a `break` statement in the `if` condition.
+- You can think, **why can't we use `return 0`?**. Yes we can use it too, but it will terminate the whole program.
+- Break will just break the particular code block not the whole program.
+- In the above code we have used `break` in a condition `a <= 0`. 
+If the input is less than `0` or equal to `0`, the for loop breaks.
+
+**Output**
+```
+Enter number1: 1
+Enter number2: 2
+Enter number3: 3
+Enter number4: 0
+Sum = 6
+```
+### Continue
+
+The continue statement skips the current iteration of the loop and continues with the next iteration.
+
+Eg:
+
+```c
+#include <stdio.h>
+
+int main() {
+	int a, sum = 0;
+	// Sum of 10 or fewer numbers
+	for (int i = 1; i <= 10; i++) {
+		printf("Enter number%d: ", i);
+		scanf("%d", &a);
+		// if the user enters 0, break the loop
+		if (a <= 0) {
+			continue;
+		}
+		// sum = sum + a
+		sum += a;
+	}
+	printf("Sum = %d", sum);
+	return 0;
+}
+```
+
+- Let us take the above example and replace `break` with `continue`.
+- Now what happens is, the numbers equal to `0` or less than `0` are not taken to the Sum.
+- The loop won't break instead it will continue but won't count the numbers given if the condition doesn't satisfy.
+
+**Output**
+
+```
+Enter number1: 0
+Enter number2: -8
+Enter number3: 1
+Enter number4: 2
+Enter number5: -9
+Enter number6: 3
+Enter number7: -7
+Enter number8: 4
+Enter number9: 5
+Enter number10: 0
+Sum = 15
+```

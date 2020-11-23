@@ -1,0 +1,639 @@
+---
+id: calculator
+title: Calculator
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+In this Chapter we will be covering `StatefulWidget`, Creating a `Widget` and setting States using `setState`.
+Let's get Started...
+
+## Aim ##
+
+<img src={useBaseUrl('/img/Flutter/chapter2/calculator.svg')} height="300"/>
+
+From this aim, we meed to create 2 parts first.
+
+1. Text input field.
+
+2. Buttons part.
+
+## Start Coding ##
+
+After creating new project, We are ready to edit and start making changes.
+
+- Remove `MyHomePage` widget and create a new `StatefulWidget` called **Calculator**.
+
+> - `stful` is the shortcut to create a **StatefulWidget**.
+- `stl` is the shortcut to create a **StatelessWidget**.
+
+- This is how the current code looks.
+
+```dart title="main.dart"
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Calculator App',
+      // This is the theme of the app
+      // and it's primary color is blue.
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: Calculator(),
+    );
+  }
+}
+
+class Calculator extends StatefulWidget {
+  @override
+  _CalculatorState createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+```
+
+If you run this code it will show you a blank(black) screen. Don't you wonder why?
+
+Because, The container in the `Calculator` Widget isn't wrapped by Scaffold.
+- In Simple terms, `Scaffold` is a drawing sheet on drawing pad called `MaterialApp` which will give 
+material support to the whole app.
+
+### StatefulWidget ###
+
+The widget whose state can be altered/changed/updated once it is built (mutable state).
+We will be working on them in further process.
+
+- Coming back to code, Let's edit `Calculator` Widget.
+
+```dart title="main.dart"
+class Calculator extends StatefulWidget {
+  // Constructor for the class `Calculator`
+  const Calculator({Key key}) : super(key: key);
+  @override
+  _CalculatorState createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // A widget that insets its child by sufficient 
+      // padding to avoid intrusions by the operating system.
+      // The name it-self says that The widget will keep the children
+      // in safe area from overlaying the OS's 
+      // navigation/notification shades/notch screens. 
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Container(
+                // Height of the container is 30% of it's screen height.
+                // The name MediaQuery it-self tells that the widget is all about
+                // Media we use. A Query will be providing information on your Query.
+                // So, MediaQuery of size will provide the 
+                // information about the screen's Size.
+                // We need a height of the screen, so we used seice of height(size.height).
+                // To make this container responsive we are 
+                // multiplying the hight with 0.3 times of the screen height.
+                // This code is only for testing purpose. The values may change in future.
+                height: 0.3 * MediaQuery.of(context).size.height,
+                width: double.infinity,
+                // For detecting the container we have colored it black.
+                color: Colors.black,
+              ),
+              Container(
+                // Height of the container is 70% of it's screen height.
+                // Multiplying the hight with 0.7 times of the screen height
+                height: 0.7 * MediaQuery.of(context).size.height,
+                // Width of the Container is infinite. 
+                // So the width will cover the screen horizontally without overflowing.
+                width: double.infinity,
+                color: Colors.red,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+- Division part was done for TextField and buttons field. This part **output** will be like this.
+
+<img src={useBaseUrl('/img/Flutter/chapter2/output1.png')} height="300"/>
+
+- We should create buttons.
+
+As we know, Flutter is full of widgets. We will create a Button Widget.
+
+- Create a new folder **widgets**(name it anything) in **lib** directory and create a file called `buttons.dart` in **widgets** folder.
+
+:::warning
+If the dart files you created aren't in `lib` folder, then the files cannot be read. 
+
+<img src={useBaseUrl('/img/Flutter/chapter2/tree.png')} height="300"/>
+
+This is how the path must look like if you add any file/folder.
+:::
+
+- In `buttons.dart` create a `StatelessWidget` and name it `CustomButtons`.
+
+That will looks like this.
+
+```dart title="buttons.dart"
+import 'package:flutter/material.dart';
+
+class CustomButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+```
+
+- Let's start customizing buttons :wink: .
+
+```java title="buttons.dart"
+import 'package:flutter/material.dart';
+
+class CustomButtons extends StatelessWidget {
+  // @required variable is a mandatory
+  // variable to be passed.
+  // These are the properties we are passing to this widget.
+  @required final String text;
+  @required final Function onPressed;
+  final Color textColor;
+  final Color buttonColor;
+  final double fontsize;
+  // Constructor of the Widget CustomButtons.
+  // Constructor is a special method of Dart 
+  // class which is automatically called when the object 
+  // is created. Simply The constructor is like a function with/without 
+  // parameter but it doesn’t have a return type.
+  const CustomButtons(
+    this.text, {
+    Key key,
+    this.fontsize,
+    this.onPressed,
+    this.textColor,
+    this.buttonColor,
+  })  :
+  // assert statements are really helpful during debugging the app.
+  // Example, If you  haven't passed any String in text value in this widget. 
+  // Then it will return a red screen with the error stated below.
+   assert(
+          // Condition. If this doesn't satisy this error will be returned.
+          // Give it a try if you like to.
+          text != null,
+          "Text you provided is null or No text is provided.",
+        ),
+        assert(onPressed != null, "Make sure You didn't leave onPressed");
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 70,
+      width: 70,
+      // ElevatedButton is a new widget on flutter version 1.22.
+      // we pass Text as child to get numbers.
+      // We need to decorate the button. 
+      child: ElevatedButton(
+        // Before using style this way. You must be adding 
+        // elevatedButtonTheme in MaterialApp in `main.dart`.
+        // That will be shown in next code block. 
+        style: ElevatedButton.styleFrom(
+          // By using Ternary operator we will write a condition.
+          // if(buttonColor == null)
+          // {
+          //  if you haven't passed any color then this 
+          //  will be the default value
+          //  Colors.white
+          // }
+          // else 
+          // {
+          //  get the value you have assigned to it.
+          //  buttonColor
+          // }
+          primary: buttonColor == null ? Colors.white : buttonColor,
+          // As per the app we need border radius to be
+          // circular. So BorderRadius.circular(50) 
+          // will make a cut with radii length arc.
+          // This makes the buttons round in shape.
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+        ),
+        // We pass the text Constructor value here.
+        // It can't be null cause we wrote assert at constructor.
+        // so no need to write any condition here.
+        // This is a statefulWidget so you can pass the 
+        // constructor value directly. But what if it is a
+        // StatefulWidget?
+        // Instead text we take widget of text (widget.text).
+        child: Text(
+          text,
+          // We can even pass different TextStyle values.
+          style: TextStyle(
+            fontWeight: FontWeight.w900,
+            fontSize: fontsize == null ? 24.0 : fontsize,
+            color: textColor == null ? Colors.black : textColor,
+          ),
+        ),
+        // Onpressed function.
+        onPressed: onPressed,
+      ),
+    );
+  }
+}
+```
+
+```dart title="main.dart" {9-11}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        // If we use this property, we can escape from new 
+        // MaterialStateProperty widget used properties in new buttons.
+        // We also have outlinedButtonTheme and textButtonTheme also.
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(),
+        ),
+      ),
+      home: Calculator(),
+    );
+  }
+}
+```
+
+- Now we are ready to use This widget. In `Caluculator` class we are adding these buttons
+with in `Row`s and `Column`s.
+
+```dart title="main.dart"
+class Calculator extends StatefulWidget {
+  @override
+  _CalculatorState createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  String _operation = '';
+  String _result = '';
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  alignment: Alignment(1, 1),
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    _operation,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 30,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  alignment: Alignment(1, 1),
+                  child: Text(
+                    _result,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 50,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 0.7 * MediaQuery.of(context).size.height,
+                  width: double.infinity,
+                  color: Colors.grey[200],
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CustomButtons(
+                            "C",
+                            onPressed: () {},
+                            textColor: Colors.lightBlueAccent,
+                          ),
+                          CustomButtons(
+                            "⌫",
+                            onPressed: () {},
+                            textColor: Colors.lightBlueAccent,
+                          ),
+                          CustomButtons(
+                            "%",
+                            onPressed: () {},
+                            textColor: Colors.lightBlueAccent,
+                          ),
+                          CustomButtons(
+                            "/",
+                            onPressed: () {},
+                            textColor: Colors.lightBlueAccent,
+                            fontsize: 30,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CustomButtons(
+                            "7",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "8",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "9",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "*",
+                            onPressed: () {},
+                            textColor: Colors.lightBlueAccent,
+                            fontsize: 30,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CustomButtons(
+                            "4",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "5",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "6",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "-",
+                            onPressed: () {},
+                            textColor: Colors.lightBlueAccent,
+                            fontsize: 30,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CustomButtons(
+                            "1",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "2",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "3",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "+",
+                            onPressed: () {},
+                            textColor: Colors.lightBlueAccent,
+                            fontsize: 30,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SizedBox(
+                            width: 50,
+                            height: 50,
+                          ),
+                          CustomButtons(
+                            "0",
+                            onPressed: () {},
+                            textColor: Colors.black,
+                          ),
+                          CustomButtons(
+                            "•",
+                            onPressed: () {},
+                            textColor: Colors.lightBlueAccent,
+                            fontsize: 30,
+                          ),
+                          CustomButtons(
+                            "=",
+                            onPressed: () {},
+                            textColor: Colors.white,
+                            buttonColor: Colors.lightBlueAccent,
+                            fontsize: 30,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+```
+
+- Write Logic for this UI now. Write a function 
+above the build function with `String` parameter passign in it.
+
+```dart title="main.dart"
+class Calculator extends StatefulWidget {
+  @override
+  _CalculatorState createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  String _operation = '';
+  String _result = '';
+  
+  void numPressed(String text){
+    // OnPressed the button, we will setState
+    // _result = _result + text
+    // Initially the _result will be null.
+    // On button pressed, the text of the button
+    // will be concatenated.
+    // Eg: If I press 5, It will show 5. 
+    // If I again press 4, It will show 54.
+    // If you press C, It will show 54C.
+    // So, What ever you type, It will be showing up there.
+    // If you don't use setState, It will not be updated.
+    setState((){
+      _result += text;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      ...
+    );
+  }
+}  
+```
+
+- Call `numPressed` in onPressed property of all `CustomButtons` widget. Check what it prints.
+
+```dart title="main.dart" {3}
+CustomButtons(
+  "0",
+  onPressed: numPressed,
+  textColor: Colors.black,
+),
+``` 
+
+- Similary create functions for `remove/clear` and `all clear`.
+
+```dart title="main.dart"
+void allClear(String text) {
+  // All clear will set the Text to ''. i.e, null.
+  // That mean, It simply clears all the screen.
+  setState(() {
+    _result = '';
+    _operation = '';
+  });
+}
+
+void clear(String text) {
+  // This will only clears the result.
+  setState(() {
+    _result = '';
+  });
+}
+```
+
+- Finally, Time to use a [Pub package](https://pub.dev). Go head to [https://pub.dev](https://pub.dev) and search for
+[math_expressions](https://pub.dev/packages/math_expressions). After Adding the package to **pubspec.yaml**, 
+head over to `main.dart` and type this code.
+
+```dart title="main.dart" {3,31,32,34,36,38,41-45}
+import 'package:calculator/widgets/button.dart';
+import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    ...
+  }
+}
+
+class Calculator extends StatefulWidget {
+  @override
+  _CalculatorState createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  String _operation = '';
+  String _result = '';
+  
+  void numPressed(String text){...}
+
+  void allClear(String text) {...}
+
+  void clear(String text) {...}
+
+  void evaluate(String text) {
+    Parser p = Parser();
+    // We are creating the expression via parse.
+    Expression expression = p.parse(_result);
+    // Binding the variables to evaluate.
+    ContextModel contextModel = ContextModel();
+    // Evaluating the expression as real numbers.
+    double result = expression.evaluate(EvaluationType.REAL, contextModel);
+    // when = is pressed, we are setting operation as result and result as
+    // evaluated result and converting that as string.
+    setState(() {
+      _operation = _result;
+      _result = result.toString();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      ...
+    );
+  }
+} 
+```
+
+- As we generally don't use calculator in landscape mode, we will disable the orientation.
+
+```dart title="main.dart" {4,13-15}
+import 'package:calculator/widgets/button.dart';
+import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
+import 'package:flutter/services.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+    return MaterialApp(...);
+  }
+}
+```
+
+And finally we are done.
+
+## Output ##
+
+<img src={useBaseUrl('/img/Flutter/chapter2/output.svg')} height="300"/>

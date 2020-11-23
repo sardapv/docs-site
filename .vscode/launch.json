@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "cwd": "${workspaceFolder}",
+            "command": "npm start",
+            "name": "Run npm start",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ]
+}

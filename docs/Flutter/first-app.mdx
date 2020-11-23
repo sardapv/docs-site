@@ -1,0 +1,248 @@
+---
+title: First app
+id: first-app
+---
+
+## Create an App ##
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<Tabs
+  groupId="ides"
+  className="unique-tabs"
+  defaultValue="android studios"
+  values={[
+    { label: 'Android Studios / IntelliJ', value: 'android studios', },
+    { label: 'VS Code', value: 'vscode', },
+    { label: 'Terminal', value: 'terminal', },
+  ]}>
+<TabItem value="android studios">
+
+1. Open **Android studios/IntelliJ** and select *Start a new Flutter project*.
+
+2. Select Flutter Application as the project type. Then click Next.
+
+3. Browse the **Flutter SDK**'s directory (select Install SDK if the text field is blank).
+
+4. Enter the name for the App (for example, first_app). Then click Next.
+
+5. Enter the package name (for example com.example.firstapp).
+
+6. Click Finish.
+
+7. Wait for Android Studio to create the project.
+
+  ![img](/img/gifs/android-first_app.gif)
+
+</TabItem>
+<TabItem value="vscode">
+
+1. Invoke Command Palette using **F1** or **ctrl+shift+p**.
+
+2. Type “**flutter**”, and select the ***Flutter: New Project***.
+
+3. Enter a project name, such as myapp, and press Enter.
+
+4. Create or select the parent directory for the new project folder.
+
+5. Wait for project creation to complete and the main.dart file to appear.
+
+  ![img](/img/gifs/vscode-first_app.gif)
+
+</TabItem>
+<TabItem value="terminal">
+
+1. Head to the directory where to create your first app.
+  
+  Eg: 
+  ```shell
+  C:\Users\user> cd .\Documents\Projects\
+  C:\Users\user\Documents\Projects>
+  ```
+
+2. Type “**`flutter create first_app`**” and head over to the project root directory.
+
+  Eg:
+  ```shell
+  flutter create first_app
+  cd first_app
+  ```
+
+3. Wait for project creation to complete.
+
+4. After the project is created, open it with your favorite editor.
+
+  ![img](/img/gifs/terminal-first_app.gif)
+
+</TabItem>
+</Tabs>
+
+:::important
+
+1. Make sure your project name should not contain any capital letters 
+and also any special characters except “**_**”.
+
+2. If the app you are making for any production, 
+then please make sure of changing/refactoring the package name
+(which looks like this **com.example.first_app**).
+
+:::
+
+## Run App ##
+
+<Tabs
+  className="unique-tabs"
+  groupId="ides"
+  defaultValue="android studios"
+  values={[
+    { label: 'Android Studios / IntelliJ', value: 'android studios', },
+    { label: 'VS Code', value: 'vscode', },
+    { label: 'Terminal', value: 'terminal', },
+    { label: 'X-Code', value: 'xcode', },
+  ]}>
+<TabItem value="android studios">
+
+1. Once opening the project with Android studios then you will find **'Pub get' has not been run** toast(as shown below), Then click on ***Get dependencies***.
+
+    If you didn't find it, you can skip the 1st step.
+
+  <img src={useBaseUrl('/img/screenshots/pubget.png')} height='25'/>
+
+2. Head to **Run/Debug Configuration** and Configure if it doesn't(by default it will be already configured as `main.dart` as shown below).
+
+  <img src={useBaseUrl('/img/icons/main.svg')} width='150'/>
+
+3. If you already have the emulator opened then it will showup your device name in **Flutter device selection**(as shown below).
+
+  <img src={useBaseUrl('/img/icons/target.svg')} width='150'/>
+
+4. Now, It's time to run the app. Click the run icon **“** <img src={useBaseUrl('/img/icons/play.svg')} width='12'/> **”** in the toolbar, or you can even use shortcut `Shitft + F10`.
+
+    > First build takes a while.
+
+</TabItem>
+<TabItem value="vscode">
+
+1. Once opening the project with Visual Studio Code, You will be prompting(as shown below), Click on the **Get Packages**.
+
+  <img src={useBaseUrl('/img/screenshots/vscode-get_packages.png')} height='100'/>
+
+2. Select a device from the Device Selector area, you will find that in the right-bottom.
+
+    * If no device is available and you want to use a device simulator, click No Devices and launch a simulator.
+
+  <img src={useBaseUrl('/img/screenshots/vscode-device.png')} width='500'/>
+
+3. Now, It's time to run the app. Click the run icon present on the Top-Right corner when you open main.dart file.
+
+    * If you can't find the run button, press **<b>`F5`</b>** or you will find **Start Debugging** at **Run** in the toolbar.
+
+> First build takes a while.
+
+</TabItem>
+
+<TabItem value="terminal">
+
+1. Check for the connected devices
+
+  ```shell
+  flutter devices
+  ```
+
+  If none connected, Check for the [setting up debugging devices](/docs/flutter/ide#set-up-your-android-device) documentation.
+
+2. Now, It's time to run the app.
+
+  ```shell
+  flutter run
+  ```
+
+</TabItem>
+
+
+<TabItem value="xcode">
+
+1. Install cocoapods by running the following command.
+
+  ```shell
+  sudo gem install cocoapods
+  ```
+
+2. Open the default Xcode workspace in your project by running open **ios/Runner.xcworkspace** 
+in a terminal window from your Flutter project directory.
+
+3. Select the device you intend to deploy to in the device drop-down menu next to the run button.
+
+4. Select the **Runner** project in the left navigation panel.
+
+5. In the Runner target settings page, make sure your Development Team is selected. 
+The UI varies depending on your version of Xcode.
+    
+    * For Xcode 10, look under **General > Signing > Team**.
+    
+    * For Xcode 11 and newer, look under **Signing & Capabilities > Team**.
+
+:::important
+To start your first iOS development project, you might need to sign into Xcode with your Apple ID.
+:::
+
+6. The first time you use an attached physical device for iOS development, 
+you need to trust both your Mac and the Development Certificate on that device.
+
+7. If automatic signing fails in Xcode, 
+verify that the project’s **General > Identity > Bundle Identifier** value is unique.
+
+8. Start your app by running **flutter run** or clicking the **Run** button in Xcode.
+
+</TabItem>
+
+</Tabs>
+
+## Output ##
+
+<img src={useBaseUrl('/img/screenshots/output.jpg')} height='350'/>
+
+This will be the initial screen of the app.
+
+:::caution
+ **Warning:** 
+ When launching your app from a Mac, <br/>
+ if you see ERROR: `Could not connect to lockdownd, error code -17`, 
+ make sure that you have trusted your computer.
+:::
+
+## Features ##
+
+<h3>Hot Reload <img src={useBaseUrl('/img/icons/hot_reload.svg')} height='20'/></h3>
+
+Flutter offers a fast development cycle with *Stateful Hot Reload*, 
+the ability to reload the code of a live running app without restarting or losing the app state. 
+Make a change to app source, tell your IDE or command-line tool that you want to hot reload, 
+and see the change in your simulator, emulator, or device.
+
+**Eg:**
+
+  1. Open ***lib/main.dart***.
+  
+  2. Change the string on ***`main.dart`***
+
+  ```
+  You have pushed the button this many times:
+  ```  
+  To
+
+  ```
+  You have clicked the button this many times:
+  ```
+
+  3. You don't need to stop/terminate the app, Just save your changes.
+
+  If you run the app in the terminal, then type **r** in the terminal window to hot reload.
+
+<h3>Hot Restart <img src={useBaseUrl('/img/icons/hot_restart.svg')} height='18'/></h3>
+
+Hot restart loads code changes into the device, and restarts the Flutter app, 
+losing the app state. (`⇧ ⌘ \` in IntelliJ and Android Studio for Mac and `Ctrl + Shift + \` in windows, 
+`⇧ ⌘ F5` for mac and `Ctrl + Shift + F5` for windows in VSCode).

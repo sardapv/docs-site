@@ -1,0 +1,283 @@
+---
+title: Installation
+id: install
+---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<Tabs
+  defaultValue="windows"
+  values={[
+    { label: 'Windows', value: 'windows', },
+    { label: 'MacOS', value: 'macos', },
+    { label: 'Linux', value: 'linux', },
+    { label: 'Chrome OS', value: 'chromeos', },
+  ]}
+>
+<TabItem value="windows">
+
+<h3>System Requirements :</h3>
+
+<img height='50' src={useBaseUrl('/img/logos/windows.svg')}/>
+
+**Windows 7/8/10** (64-bit), x86-64bit<br />
+**Disk Space:** 1.5GB<br />
+**Other Tools:** [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.1), [Git for windows](https://git-scm.com/download/win), [Android Studio](https://developer.android.com/studio), [Visual Studio Code](https://code.visualstudio.com/download)(Optional), [JAVA 8](https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html)
+
+<h3> Steps to Install </h3>
+
+Create a dir in `C:\` with the name of `src` and now open your command prompt(cmd) and head to `src` dir and clone the flutter repository from [Flutter GitHub repository](https://github.com/flutter/flutter/).
+
+```shell
+cd src\
+git clone https://github.com/flutter/flutter.git -b stable --depth 1
+```
+<h3>Setup your flutter path</h3>
+
+Now set the flutter path to your system environment. 
+
+Press "**<img height='13' src={useBaseUrl('/img/logos/windows.svg')}/> + R**"
+and run `SystemPropertiesAdvanced.exe` to open system properties
+
+**<p align="center">OR</p>**
+
+Press <img height='13' src={useBaseUrl('/img/logos/windows.svg')}/> key and search for `environment` and choose "**Edit the system environment variables**".
+
+Click the "Environment Variables..." button in the bottom-right. In the user variables select `path` and click on **edit** to edit/manipulate the path.
+If you see **Browse Directory...** and **Browse File** option then do this
+  * In **Variable value**, continue with the existing paths this way `existing_paths;C:\src\flutter\bin\`.
+  **<p align="center">Else</p>**
+  * Add new **Variable value** with the path `C:\src\flutter\bin\`.
+
+Click **ok** for all tabs appear there and restart the system.
+
+<h3>Checking the flutter command</h3>
+
+Now check whether the **`flutter`** command is working or not.
+
+```shell
+flutter --version
+```
+
+If this gives you output, You are ready to flutter now. Else contact us [here](https://flutter.dev).
+
+Now upgrade the flutter package you have cloned.
+
+```shell
+flutter upgrade
+```
+This will download the required packages.
+
+This will be the output
+
+```log
+PS C:\Users> flutter upgrade
+Checking the Dart SDK version...
+Downloading Dart SDK from Flutter engine a1440ca392ca23e874a105c5f3248b495bd0e247...
+Unzipping Dart SDK...
+Building a flutter tool...
+Running pub upgrade...
+
+  ╔════════════════════════════════════════════════════════════════════════════╗
+  ║                 Welcome to Flutter! - https://flutter.dev                  ║
+  ║                                                                            ║
+  ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
+  ║                                                                            ║
+  ║ Flutter tool analytics are not sent on the very first run. To disable      ║
+  ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
+  ║ setting, type 'flutter config'. If you opt-out of analytics, an opt-out    ║
+  ║ the event will be sent, and then no further information will be sent by    ║
+  ║ the Flutter tool.                                                          ║
+  ║                                                                            ║
+  ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
+  ║ Note: The Google Privacy Policy describes how data is handled in this      ║
+  ║ service.                                                                   ║
+  ║                                                                            ║
+  ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
+  ║ crash reports to Google.                                                   ║
+  ║                                                                            ║
+  ║ Read about data we send with crash reports:                                ║
+  ║ https://flutter.dev/docs/reference/crash-reporting                         ║
+  ║                                                                            ║
+  ║ See Google's privacy policy:                                               ║
+  ║ https://policies.google.com/privacy                                        ║
+  ╚════════════════════════════════════════════════════════════════════════════╝
+
+
+Flutter is already up to date on channel stable
+Flutter 1.22.3 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 8874f21e79 (2 weeks ago) • 2020-10-29 14:14:35 -0700
+Engine • revision a1440ca392
+Tools • Dart 2.10.3
+```
+
+</TabItem>
+
+<TabItem value="macos">
+
+<h3>System Requirements :</h3>
+
+<img height='50' src={useBaseUrl('/img/logos/apple.svg')}/>
+
+**MacOS** (64-bit)<br />
+**Disk Space:** 3GB<br />
+**Other Tools:** [cocoapods](https://cocoapods.org/), [X-Code](https://apps.apple.com/in/app/xcode/id497799835?mt=12), [Android Studio](https://developer.android.com/studio), [Visual Studio Code](https://code.visualstudio.com/download)(Optional), [JAVA 8](https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html)
+
+<h3>Steps to Install</h3>
+
+Create a dir with the name of `src` where ever you want in the system and now open your terminal(bash/zsh) and head to `src` dir and clone the flutter repository from [Flutter GitHub repository](https://github.com/flutter/flutter/).
+
+```bash
+git clone https://github.com/flutter/flutter.git -b stable --depth 1
+```
+
+<h3>Setup your flutter path</h3>
+
+Now update the flutter path to your system environment.
+
+Open your current terminal profile. If bash is your current/default terminal then open **`$HOME/.bash_profile`** or **`$HOME/.bashrc`**, If zsh is your current/default terminal then open **`$HOME/.zshrc`** .
+
+After opening the file add the following line at bottom of the whole content
+
+> **Note:** Update this **[Dir_path_where_src_exists]** with the path of your **src** directory.
+
+```bash
+export PATH="$PATH:[Dir_path_where_src_exists]/src/flutter/bin"
+```
+
+<h3>Checking the flutter command</h3>
+
+Now check whether the **`flutter`** command is working or not.
+
+```shell
+flutter --version
+```
+
+If this gives you output, You are ready to flutter now. Else contact us [here](https://flutter.dev).
+
+Now upgrade the flutter package you have cloned.
+
+```shell
+flutter upgrade
+```
+This will download the required packages.
+
+</TabItem>
+<TabItem value="linux">
+
+<h3>System Requirements :</h3>
+
+<img height='50' src={useBaseUrl('/img/logos/linux.svg')}/>
+
+**Linux** (64-bit)<br />
+**Disk Space:** 1GB<br />
+**Other Tools:** [Android Studio](https://developer.android.com/studio), [Visual Studio Code](https://code.visualstudio.com/download)(Optional), [JAVA 8](https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html)
+
+<h3>Steps to Install</h3>
+
+Create a dir with the name of `src` where ever you want in the system and now open your terminal and head to `src` dir and clone the flutter repository from [Flutter GitHub repository](https://github.com/flutter/flutter/).
+
+You can install Flutter in Linux either using Git or Snap
+
+<h4>Snap</h4>
+
+```bash
+sudo snap install flutter --classic
+```
+
+<h4>Git</h4>
+
+```bash
+git clone https://github.com/flutter/flutter.git -b stable --depth 1
+```
+<h3>Setup your flutter path</h3>
+
+Now update the flutter path to your system environment.
+
+Open your current terminal profile. If bash is your current/default terminal then open **`$HOME/.bash_profile`** or **`$HOME/.bashrc`**.
+
+After opening the file add the following line at bottom of the whole content
+
+> **Note:** Update this **[Dir_path_where_src_exists]** with the path of your **src** directory.
+
+```bash
+export PATH="$PATH:[Dir_path_where_src_exists]/src/flutter/bin"
+```
+
+<h3>Checking the flutter command</h3>
+
+Now check whether the **`flutter`** command is working or not.
+
+```shell
+flutter --version
+```
+
+If this gives you output, You are ready to flutter now. Else contact us [here](https://flutter.dev).
+
+Now upgrade the flutter package you have cloned.
+
+```shell
+flutter upgrade
+```
+This will download the required packages.
+</TabItem>
+<TabItem value="chromeos">
+
+<h3>System Requirements :</h3>
+
+<img height='50' src={useBaseUrl('/img/logos/chrome.png')}/>
+
+**Chrome OS** (64-bit) with Linux (Beta) turned on<br />
+**Disk Space:** 1GB<br />
+**Other Tools:** [Android Studio](https://developer.android.com/studio), [Visual Studio Code](https://code.visualstudio.com/download)(Optional), [JAVA 8](https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html)
+
+<h3>Steps to Install</h3>
+
+Create a dir with the name of `src` where ever you want in the system and now open your terminal and head to `src` dir and clone the flutter repository from [Flutter GitHub repository](https://github.com/flutter/flutter/).
+
+```bash
+git clone https://github.com/flutter/flutter.git -b stable --depth 1
+```
+
+<h3>Setup your flutter path</h3>
+
+Now update the flutter path to your system environment.
+
+Open your current terminal profile. If bash is your current/default terminal then open **`$HOME/.bash_profile`** or **`$HOME/.bashrc`**.
+
+After opening the file add the following line at bottom of the whole content
+
+> **Note:** Update this **[Dir_path_where_src_exists]** with the path of your **src** directory.
+
+```bash
+export PATH="$PATH:[Dir_path_where_src_exists]/src/flutter/bin"
+```
+
+<h3>Checking the flutter command</h3>
+
+Now check whether the **`flutter`** command is working or not.
+
+```shell
+flutter --version
+```
+
+If this gives you output, You are ready to flutter now. Else contact us [here](https://flutter.dev).
+
+Now upgrade the flutter package you have cloned.
+
+```shell
+flutter upgrade
+```
+This will download the required packages.
+</TabItem>
+</Tabs>
+<h3>Doctor Check</h3>
+
+Check up with the doctor for knowing issues.
+
+Run **` flutter doctor`** for doctor test and you can use **` flutter doctor -v`** for verbose.
+
+```console
+flutter doctor -v
+```

@@ -1,0 +1,180 @@
+---
+title: Functions
+---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+
+The name itself defines it, a block of code that performs a specific task.
+
+### Types of function ###
+
+There are two types of function in C programming:
+
+  * Standard library functions
+ 
+  * User-defined functions
+
+### Standard library functions ###
+
+The standard library functions are built-in functions, such as `main()`, `printf()`, `scanf()`, `sqrt()`, etc...
+
+`main()` function is the primary function that must be the starting point for program execution.
+
+### User-defined functions ###
+
+Functions created by the user are User-defined functions. It can be anything but must be defined by the user.
+
+### Why should you use functions? ###
+
+Because, Dividing complexity into smaller chunks makes our program easy to understand and reuse.
+
+For Example you have 2 jobs to complete work. Then what would you do?
+
+<Tabs
+  defaultValue="without func"
+  values={[
+    { label: 'Without functions', value: 'without func', },
+    { label: 'With functions', value: 'with func', },
+  ]}>
+<TabItem value="without func">
+
+This code is without a function.
+
+```c
+#include<stdio.h>
+
+int main(){
+	//-----job1 start-----//
+				|
+				|
+			some code
+				|
+				|
+	//-----job1 ends-----//
+
+	//-----job2 start-----//
+				|
+				|
+			some code
+				|
+				|
+	//-----job2 ends-----//
+	return 0;
+}
+```
+</TabItem>
+<TabItem value="with func">
+
+This code is with a function.
+
+```c
+#include<stdio.h>
+
+int job1(){
+		//-----job1 start-----//
+				|
+				|
+			some code
+				|
+				|
+	//-----job1 ends-----//
+	return 0;
+}
+
+int job2(){
+	//-----job2 start-----//
+				|
+				|
+			some code
+				|
+				|
+	//-----job2 ends-----//
+}
+
+int main(){
+	job1();
+	job2();	
+	return 0;
+}
+```
+</TabItem>
+</Tabs>
+
+So, What's actually happening there? Well, let it be more clear
+
+**<ins>Eg :</ins>**
+
+```c
+#include <stdio.h>
+
+void functionName()
+{
+	printf("working on function\n");
+}
+
+int main()
+{
+	printf("main code\n");
+	functionName();
+}
+```
+
+1. We created a function named `functionName()` with a code block of a print statement.
+
+2. We called that function `functionName()` in `main()` function.
+
+That's it, And the out put is
+
+```
+main code
+working on function
+```
+
+There will be more Examples in the  future.
+
+### Pass arguments to a function ###
+
+```c
+#include<stdio.h>
+
+int add(int a, int b) 
+{
+    int res;
+    res = a+b;
+    return res;
+}
+
+int main(){
+	int n1, n2, sum;
+    printf("Enter two numbers for addition: \n");
+    scanf("%d %d",&n1,&n2);
+    sum = add(n1, n2);
+	printf("a + b = %d",sum);
+	return 0;
+}
+```
+
+We have `add()` which takes 2 arguments. We follow how the code runs/executes for a better understanding
+ * From `main()` function, we take 2 inputs.
+
+ * We are storing the values taken from the user in `n1` and `n2`.
+
+ * Stored values are passed to `sum()` function.
+
+ * As `sum()` function needs 2 `int` variables, the values passed will be assigned to `a`, `b`.
+
+ * Now `a + b` is the [operation](/docs/c/operations) and got result will be assigned to `res` and returned.
+
+ * The returned value of `res` will be assigned to `sum` in `main()` function.
+
+ * Then the sum of 2 numbers will be printed.
+
+Here is the output
+
+```
+Enters two numbers for addition: 
+5
+6
+a + b = 11
+```

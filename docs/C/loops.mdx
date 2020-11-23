@@ -1,0 +1,150 @@
+---
+title: Loops
+---
+
+Loop is nothing but, repeating a process continuously until it reaches a specific condition.
+Same way, repeating a code block till it satisfies a condition.
+
+We have 3 types of Loops
+
+- for loop
+- while loop
+- Do while loop
+
+### For Loop
+
+**Syntax**
+
+```c
+for(declaration; condition; statemment/process if condition satisfied)
+{
+    // Code Block
+}
+```
+
+Without knowing syntax, It is harder to write loops.
+
+This is how the for loop works
+
+- We will initialize / declare a variable.
+- The code block will run until the condition doesn't satisfy.
+- The code block will run if the condition satisfy and the expression/statement in the loop will get updated.
+
+Eg:
+
+```c
+#include <stdio.h>
+
+int main() {
+	// a = 1 ---> Declaring/Initializing value with data type.
+	// a < 11 ---> if(a < 11), Checkling if a is less than 11.
+	// a++ ---> adding +1 to the value of a if the condition satisfies.
+	for (int a = 1; a < 11; a++)
+	{
+		printf("%d\n", a);
+	}
+	return 0;
+}
+```
+
+- Declared `a = 1`, and comparing `1 < 11`, it satisfied and moved to print statement.
+- After printing, as the condition satisfied, the code will move to the `a++` statement.
+- It increments the value of `a` by one. Now the values is 2, `a = 2`.
+- Again it will start from the comparison. And continues until `a < 11`.
+- If `a = 11`, `11 < 11` is not satisfying the condition. So it will not move to the print statement.
+- The code will come out of the loop. The next continuation code is `return 0`. Sadly, It exits now.
+
+**Output**
+
+```
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+### While Loop
+
+The While loop doesn't need any variable declaration, statement in it.
+
+Eg:
+
+```c
+#include<stdio.h>
+
+int main(){
+	int i = 1;
+	// while will have a condition.
+	while (i <= 5)
+	{
+		printf("%d\n", i);
+		i++;
+	}
+	return 0;
+}
+```
+
+- When `i = 1`, the condition `i <= 5` is true. Hence, the code block of the while loop is executed.
+  This prints 1 and the value of i is increased to 2 cause of `i++`.
+- Now, `i = 2`, the condition `i <= 5` is again true. The code block of the while loop is executed again.
+  This prints 2 and the value of i is increased to 3.
+- This process will continue until it becomes 6. When `i = 6`, the condition `i <= 5` will be false and the loop terminates and the code out of the loop will continues.
+
+**Output**
+
+```
+1
+2
+3
+4
+5
+```
+
+### Do While Loop
+
+Do-While is similar to a while loop. But, Code in Do-While will be executed at least once.
+
+```c
+#include <stdio.h>
+int main()
+{
+	int i, sum = 0;
+	// the code block of the loop is executed at least once
+	do
+	{
+		printf("Enter a number: ");
+		scanf("%d", &i);
+		sum += i;
+	}
+	while(i > 0);
+	printf("Sum = %d",sum);
+	return 0;
+}
+```
+
+- The code in Do will be executed initially. So let us give the value of `i` as 1.
+- Then the code will go to `while(i > 0)`, as the entered value is `1`, The condition in while will be satisfied.
+- Again the code will move to `do`. This process will continue until you give a number `0`.
+- If the number you enter is `0`, the condition in while will bot be satisfied. So it won't go to `do`.
+- the next code will be executed. i.e, It prints the sum of all given numbers.
+
+> `sum += i` means `sum = sum + i`. initially `sum = 0`, so when we give `1` the sum will be stored as `sum = 0 + 1`.
+> The sum will be stored and when we give value `2`, `sum = 1 + 2` is the current value that stores in `sum`.
+
+**Output**
+
+```
+Enter a number: 1
+Enter a number: 2
+Enter a number: 3
+Enter a number: 4
+Enter a number: 5
+Enter a number: 0
+Sum = 15
+```

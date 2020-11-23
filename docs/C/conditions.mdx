@@ -1,0 +1,255 @@
+---
+title: Conditions
+---
+
+In day to day life we have certain situations where we use conditions.
+For example, If it is rainy take an umbrella else no need to bring. The same way
+we have particular condition usage scenarios.
+
+### If
+
+Let's see a quick example to understand **if** condition easily.
+
+```c
+#include<stdio.h>
+
+int main(){
+	int a, b;
+	printf("Enter values of a and b :\n");
+	scanf("%d %d", &a, &b);
+	// We are comparing a and b values if a > b.
+	if(a > b)
+	{
+		// This will print if the condition satisfies
+		printf("a is greater than b");
+		return 0;
+	}
+	// We are comparing a and b values if b > a.
+	if(b > a)
+	{
+		// This will print if the condition satisfies
+		printf("b is greater than a");
+		return 0;
+	}
+	printf("nothing satisfied");
+    return 0;
+}
+```
+
+- Hope we don't need any explanation for this if condition. But still I will explain.
+- We are taking 2 inputs `a`, `b`.
+- We are checking if the given values satisfies the condition.
+- If a is greater than b(a > b), then the condition satisfies and continue to the code block and
+  prints `a is greater than b` and exits.
+- If the condition doesn't satisfy, and `b` is greater than `a`,
+  then the `if(a>b)` condition will be skipped and comes to the next line of the code.
+- And now the `if(b > a)` condition satisfies here and it prints `b is greater than a` and then exits.
+- In case if both didn't satisfy, then it will print `nothing satisfied` cause that is the next line and exits.
+
+You know why it exits? cause we have `return 0` in if conditions. I there is no `return` statement,
+then it will also print `nothing satisfied` and then it will exit.
+
+Here is the output
+
+**output 1** (a > b)
+
+```
+Enter values of a and b :
+8
+6
+a is greater than b
+```
+
+**output 2** (b > a)
+
+```
+Enter values of a and b :
+10
+15
+b is greater than a
+```
+
+**output 3** (a == b)
+
+```
+Enter values of a and b :
+6
+6
+nothing satisfied
+```
+
+> If you need you can write
+>
+> ```c
+> if(a == b)
+> {
+> 	printf("a is equal to b");
+> }
+> ```
+>
+> cause there are only these 3 chances.
+
+### Else
+
+Else is an optional condition block for the `if` condition.
+
+Let's see a quick example to understand this easily.
+
+```c
+#include<stdio.h>
+
+int main(){
+	int a, b;
+	printf("Enter values of a and b :\n");
+	scanf("%d %d", &a, &b);
+	if(a > b){
+		printf("a is greater than b\n");
+	} else{
+		printf("b is greater than a or a is equal to b\n");
+	}
+	printf("this line will also print\n");
+	return 0;
+}
+```
+
+**Output 1** (a > b)
+
+```
+Enter values of a and b :
+6
+5
+a is greater than b
+this line will also print
+```
+
+**Output 2** (b > a)
+
+```
+Enter values of a and b :
+10
+15
+b is greater than a or a is equal to b
+this line will also print
+```
+
+- Here we have 3 conditions while comparing 2 numbers.
+
+  1.  Greater than
+  2.  Less than
+  3.  Equal to
+
+- If 1st condition doesn't satisfy go to the rest. We can simply say,
+  we are only filtering the inputs with greater than or not and we aren't minding about other cases.
+
+### else if
+
+If the cases to be checked are more than 2, then we will choose the `else if` condition.
+
+Eg:
+Let us take the same example.
+
+```c
+#include<stdio.h>
+
+int main(){
+	int a, b;
+	printf("Enter values of a and b :\n");
+	scanf("%d %d", &a, &b);
+	if(a > b)
+	{
+		printf("a is greater than b");
+	}
+	else if(b > a)
+	{
+		printf("b is greater than a");
+	}
+	else {
+		printf("both are equal");
+	}
+	return 0;
+}
+```
+
+- As we discussed earlier, we have 3 conditions and we are checking them.
+- If `a > b` --> print `a is greater than b`, else if `b > a` --> print `b is greater than a`, else --> print `both are equal`.
+
+> **Note:** We can use if, else, else if conditions as we use in English. Pretty simple right?
+
+### Nested Conditions
+
+Generally nest are made of weaving grass or some other material needed to make a nest.
+The same way we will be weaving the condition to make it a **Nested Condition**.
+Simply a condition in a condition.
+
+Eg:
+Let's compare 3 numbers this time.
+
+```c
+#include<stdio.h>
+
+int main(){
+	int a, b, c;
+	printf("Enter values of 3 numbers :\n");
+	scanf("%d %d %d", &a, &b, &c);
+	// Check if a > b
+	if(a > b)
+	{
+		// If a > b, then check a > c
+		if(a > c)
+			printf("%d is the greater number of all there numbers.", a);
+		// if a < c or a == c
+		else
+			printf("%d is the greater number of all there numbers.", c);
+	}
+	// If a < b, then check b > c
+	else if(b > c)
+		printf("%d is the greater number of all the three numbers.", b);
+	// If nothing satisfies then print c is greater
+	else
+		printf("%d is the greater number of all the three numbers.", c);
+	return 0;
+}
+```
+
+**Output 1**
+
+```
+Enter values of 3 numbers :
+1
+2
+3
+3 is the greater number of all the three numbers.
+```
+
+**Output 2**
+
+```
+Enter values of 3 numbers :
+3
+2
+1
+3 is the greater number of all the three numbers.
+```
+
+**Output 3**
+
+```
+Enter values of 3 numbers :
+2
+3
+1
+3 is the greater number of all the three numbers.
+```
+
+- We will compare `a` and `b`, If `a > b` then understand `b` is not a big number.
+- When code moves inside the condition, We will compare `a` and `c`, If `a > c` then `a` is the greater number.
+- If `a < c`, then `c` is the greater number.
+- If `a < b`, then compare `b` and `c`.
+- If `b > c`, then `b` is the greater number.
+- If no condition satisfies, then `c` is the greater number.
+
+:::important
+Didn't you wonder that I haven't used `{}` for `if` and `else`, But still code works?
+
+Because, if the statement is a single line code block you don't need `{}`.
+:::

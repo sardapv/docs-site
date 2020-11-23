@@ -1,0 +1,114 @@
+---
+title: Operations
+---
+
+### Operator
+
+A symbol that operates the [operands](/docs/c/operations/#operand).
+
+Eg:
+
+```c
+sum = a + b;
+```
+
+- Here `+` is the operator.
+
+### Operand
+
+A value or variable that which is operated.
+
+- In the above example `a`, `b` are operands.
+
+### Types of Operators
+
+| Operators                 |           Operations           |
+| ------------------------- | :----------------------------: |
+| <p align="center">+</p>   |            Addition            |
+| <p align="center">-</p>   |          subtraction           |
+| <p align="center">\*</p>  |         Multiplication         |
+| <p align="center">/</p>   |            Division            |
+| <p align="center">%</p>   |   Remainder(Modulo Division)   |
+| <p align="center">=</p>   |       assigning a value        |
+| <p align="center">==</p>  | Comparing the values(Equal to) |
+| <p align="center">!=</p>  |          Not equal to          |
+| <p align="center"><</p>   |           Less than            |
+| <p align="center">\></p>  |          Greater than          |
+| <p align="center"><=</p>  |     Less than or equal to      |
+| <p align="center">>&&</p> |      Logical AND operator      |
+| <p align="center">>!!</p> |      Logical OR operator       |
+| <p align="center">>!</p>  |      Logical NOT operator      |
+
+Eg:
+
+```c
+#include<stdio.h>
+
+int main(){
+	int a, b;
+	printf("Enter values of a and b :\n");
+	scanf("%d %d", &a, &b);
+	// a + b gives the result to the sum of a and b
+	printf("Result for Sum of a and b = %d", a+b);
+	// a - b gives the result to the difference b/w a and b
+	printf("Result for Subtracting  b from a = %d", a-b);
+	// a * b gives the result to the product of a and b
+	printf("Result for Product of a and b = %d", a*b);
+	// a / b gives the result to the quotient of a and b
+	printf("The Result for Dividing a with b = %d", a/b);
+	// a % b gives the result to the remainder of a divided by b
+	printf("The Remainder of a divided by b = %d", a%b);
+	return 0;
+}
+```
+
+Here is the output
+
+```
+Enter values of a and b :
+4
+2
+Result for Sum of a and b = 6
+Result for Subtracting  b from a = 2
+Result for Product of a and b = 8
+The Result for Dividing a with b = 2
+The Remainder of a divided by b = 0
+```
+
+### Value Reusage
+
+If you want to use the values somewhere, then store them in a variable.
+
+```c
+#include<stdio.h>
+
+int main(){
+	// Declaring variables as per the operation.
+	int a, b, c, d, e;
+	printf("Enter values of a and b :\n");
+	// Taking 2 inputs.
+	scanf("%d %d", &a, &b);
+	// Adding them and storing/assigning the value to c.
+	c = a+b;
+	printf("The Sum of a and b is %d\n", c);
+	printf("Enter some value to subtract from %d\n", c);
+	// Taking one more variable to subtract from c value.
+	scanf("%d", &d);
+	// Subtracting d from c and storing/assigning the value to e.
+	e = c-d;
+	printf("After subtracting %d from %d, the result is %d\n", d, c, e);
+	return 0;
+}
+```
+
+The result will be
+
+```
+Enter values of a and b :
+15
+12
+The sum of a and b is 27
+Enter some value to subtract from 27
+5
+After subtracting 5 from 27, the result is 22
+```

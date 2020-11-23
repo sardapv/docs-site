@@ -1,0 +1,150 @@
+---
+title: Setup IDEs
+id: ide
+---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+You can build apps with any text editors which have support with flutter, dart extensions/plugins.
+These plugins/extensions provide you with code completion, syntax highlighting, widget editing assists, run & debug support, and more.
+
+### Setting up IDEs ###
+
+<Tabs
+  defaultValue="android studios"
+  values={[
+    { label: 'Android Studios', value: 'android studios', },
+    { label: 'VS Code', value: 'vscode', },
+  ]}
+>
+<TabItem value="android studios">
+
+<h3>Install Android Studios</h3>
+
+Download [Android Studios](https://developer.android.com/studio) with version 3.0 or above.
+
+you can also use 
+* [IntelliJ IDEA Community](https://www.jetbrains.com/idea/), version 2017.1 or later
+* [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/), version 2017.1 or later
+
+using [JetBrains ToolBox](https://www.jetbrains.com/toolbox-app/)
+
+<h3>Install Flutter and Dart plugins</h3>
+
+1. Open Android Studio.
+
+2. Open **plugin preferences** (Configure > Plugins).
+
+3. Select the Flutter plugin and click **Install**.
+
+4. Click **Yes** when prompted to install the Dart plugin.
+
+5. Click **Restart** when prompted.
+
+:::important
+
+1. Open **plugin preferences** (on MacOS go to `Preferences > Plugins`; on Windows & Linux go to `File > Settings > Plugins`).
+
+2. Go to **Marketplace** and search for the Flutter plugin to install.
+:::
+
+</TabItem>
+
+<TabItem value="vscode">
+
+<h3>Install VS Code</h3>
+
+Download the latest [Visual Studio Code](https://code.visualstudio.com/download).
+
+<h3>Install the Flutter and Dart extensions</h3>
+
+1. Press **F1** top open Command Palette.
+
+2. Type **install**, and select **Extensions: Install Extensions**.
+   
+Instead of steps 1 and 2 you can use **Ctrl+Shift+X** to open extensions directly.
+
+Search for flutter extension and install it.
+
+</TabItem>
+
+</Tabs>
+
+### Set up your device ###
+
+1. Enable Developer Options and USB debugging on your device. 
+Detailed instructions are available in the [Android documentation](https://developer.android.com/studio/debug/dev-options).
+
+2. Windows-only: Install the [ADB files](https://androidmtk.com/download-15-seconds-adb-installer).
+
+3. Using a USB cable, plug your phone into your computer. 
+If prompted on your device, authorize your computer to access your device.
+
+4. In the terminal, run the flutter devices command to verify that Flutter recognizes 
+your connected Android device.
+
+### Set up the emulator / simulator ###
+
+<Tabs
+  defaultValue="emulator"
+  values={[
+    { label: 'Emulator', value: 'emulator', },
+    { label: 'Simulator', value: 'simulator', },
+  ]}
+>
+<TabItem value="emulator">
+
+1. Enable [VM acceleration](https://developer.android.com/studio/run/emulator-acceleration) on your machine.
+
+2. Launch Android Studio, click the **AVD Manager icon**, and select Create Virtual Device…
+
+  * If you do not have a project open, you can choose **Configure > AVD Manager** and select **Create Virtual Device…***
+
+3. Choose a device definition and select **Next**.
+
+4. Select one or more system images for the Android versions you want to emulate, and select **Next**. An x86 or x86_64 image is recommended.
+
+5. Under Emulated Performance, select **Hardware - GLES 2.0** to enable [hardware acceleration](https://developer.android.com/studio/run/emulator-acceleration).
+
+6. Verify the AVD configuration is correct, and select **Finish**.
+
+    For details on the above steps, see [Managing AVDs](https://developer.android.com/studio/run/managing-avds).
+
+7. In Android Virtual Device Manager, click **Run** in the toolbar. The emulator starts up and displays the default canvas for your selected OS version and device.
+
+</TabItem>
+
+<TabItem value="simulator">
+
+To develop Flutter apps for iOS, you need a Mac with [Xcode](https://apps.apple.com/us/app/xcode/id497799835) installed.
+
+1. Install the latest stable version of [Xcode](https://apps.apple.com/us/app/xcode/id497799835).
+
+2. Configure the Xcode command-line tools to use the newly-installed version of Xcode by running the following from the command line
+
+  ```shell
+  sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+  sudo xcodebuild -runFirstLaunch
+  ```
+  :::important
+  This is the correct path for most cases when you want to use the latest version of Xcode. 
+  If you need to use a different version, specify that path instead.
+  :::
+
+3. Make sure the Xcode license agreement is signed by either opening Xcode once and confirming or running 
+  ```shell
+  sudo xcodebuild -license
+  ```
+  from the command line.
+
+4. On your Mac, find the Simulator via Spotlight or by using the following command.
+  ```shell
+  open -a Simulator
+  ```
+
+5. Make sure your simulator is iPhone 5s or later, and also check if it is 64 bits.
+
+
+</TabItem>
+
+</Tabs>

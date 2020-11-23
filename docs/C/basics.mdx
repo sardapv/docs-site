@@ -1,0 +1,197 @@
+---
+title: Basics
+---
+
+### Keywords ###
+
+Keywords are predefined, reserved words in a programming language that have specific meaning to the compiler.
+
+Eg: 
+    
+```c
+int items;
+```
+
+Here ***int*** is a predefined Keyword and ***items*** is a [variable](/) of assigned type **int**
+
+### Identifiers ###
+
+An Identifier is a name of alphanumeric characters that begins with an alphabetic 
+character or an underscore character that is used to represent various programming elements such as variables, 
+functions, arrays, structures, unions, and so on. 
+
+  * An identifier is a user-defined word.
+
+  Eg: `int items`
+
+    Here `items` is an identifier
+  
+  > **NOTE:** Identifiers must be different from [keywords](/docs/c/basics#keywords).
+
+### Constants ###
+
+Define a variable with a constant value using `const`.
+
+  Eg: 
+  ```c
+  const int items = 10;
+  ```
+
+  As we have added the keyword `const`, we can't assign another value to `items`.
+
+### Variables ###
+
+A variable is a data storage area(container) to hold data of an [Identifier](/docs/c/basics#identifiers).
+
+  Eg: 
+  ```c
+  int items = 10;
+  ```
+
+  Here, We have assigned a value `10` to `items`. So the `items` identifier will keep holding 
+  the value through the code till the value changes(a different value is assigned).
+
+### Data Types ###
+
+Simply, The data type is a type of data. 
+There are predefined data-types like **int**, **float**, **char**, **bool**, etc ...
+
+#### <ins>int</ins> ####
+
+`int` is used for declaring Integer values.
+
+  Eg: 
+  ```c
+  int id;
+  ```
+
+  We can assign any value to variable `id` from **-2147483648** to **2147483647**.
+
+  * The size of int is 4 bytes (32 bits).
+
+#### <ins>char</ins> ####
+
+`char` is used for declaring the character type variable.
+
+  Eg:
+  ```c
+  char name = 'a';
+  ```
+
+  variable `name` is a data type of `char` which can hold any character.
+
+  * The size of the character variable is 1 byte.
+
+  > **NOTE:** characters value must be assigned within a `''` or `""`.
+
+#### <ins>float</ins> ####
+
+`float` is used for declaring Real numbers.
+
+  Eg:
+  ```c
+  float part = 20.354;
+  ```
+
+  We can also assign exponentials for floating points in the value.
+
+  ```c
+  float expoPart = 20.35e4;
+  ```
+
+#### <ins>string</ins> ####
+
+A string is a data type used in programming, 
+such as an integer and floating-point unit, but is used to represent text rather than numbers
+
+  Eg:
+  ```c
+  char c[] = "Free Learn";
+
+  char c[50] = "Free Learn";
+
+  char c[] = {'F', 'r', 'e', 'e'};
+
+  char c[6] = {'L', 'e', 'a', 'r', 'n'};
+  ```
+
+#### <ins>bool</ins> ####
+
+A boolean is a data type that can store true or false value.
+
+  Eg:
+  ```c
+  bool isLoading = flase;
+  ```
+
+#### <ins>Enumerated</ins> ####
+
+Enumeration (or enum) is a user-defined data type in C. 
+It is mainly used to assign names to integral constants, 
+the names make a program easy to read and maintain.
+
+  * Can also be a subtype of an integer.
+
+  * The values will be assigned by default.
+
+  Eg:
+  ```c
+  enum items { item1, item2, item3};
+  ```
+
+  From the above statement initially the value of `item1` will be `0` 
+  and others will be incremental like `item2` is `1` and `item3` is `2`.
+
+  if we have declared value as shown
+
+  ```c
+  enum items { item1 = 4, item2, item3 = 10, item4};
+  ```
+
+  then the value of `item1` will be `4` as we have assigned and automatically the value of `item2` will be `5`
+  and the value of `item4` will be `11` as it's previous `item3`'s assigned value is `10`.
+
+### Derived Data Types ###
+
+Data types are derived from fundamental data types.
+
+  Eg: Arrays, Pointers, Function Types, Structures, etc...
+
+#### <ins>Arrays</ins> ####
+
+Arrays can store a fixed-size sequential collection of elements of the same type.
+
+  **declaration**
+  ```c
+  dataType arrayName[arraySize];
+  ```
+
+  Eg:
+  ```c
+  char array[5] = {'a', 'b', 'c', 'd', 'e'};
+  ```
+
+#### <ins>Pointers</ins> ####
+
+Special variables that are used to store addresses rather than values.
+
+  Eg: 
+  ```c
+  #include <stdio.h>
+  int main()
+  {
+    int a = 5;
+    /// This prints the value of `a`
+    printf("a: %d\n", a);
+    // This prints the address of `a`
+    printf("address of a: %p", &a);
+    return 0;
+  }
+  ```
+
+  **Output**
+  
+  ```
+  a: 5
+  address of a: 0x7ffe35fcbf3c
+  ```

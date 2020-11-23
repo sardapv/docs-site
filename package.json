@@ -1,0 +1,47 @@
+{
+  "name": "free-learn",
+  "version": "1.0.0",
+  "description": "Learn for free",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yahu1031/docs-site.git"
+  },
+  "author": "Minnu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yahu1031/docs-site/issues"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.68",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.68",
+    "@mdx-js/react": "^1.6.21",
+    "clsx": "^1.1.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": "https://github.com/yahu1031/docs-site#readme"
+}

@@ -1,0 +1,76 @@
+---
+title: Input / Output
+---
+
+Input and Output is the most important function that a programming language should have. 
+We have `printf()` function as printing a statement/output and `scanf()` function for input.
+
+### Output ###
+
+```c
+printf("Hello world");
+```
+
+You cannot just use `printf()` function. You must include **Standard Input-Output** library as `#include<stdio.h>`.
+
+So this is how the program looks like
+
+```c
+#include<stdio.h>
+
+int main(){
+    printf("Free Learn");
+    return 0;
+}
+```
+
+From the code you doubt what this `main()` is and this `return 0` is. 
+You will be learning them in the future here [Functions](/docs/c/functions).
+
+### Input ###
+
+Taking input is the great functionality of a program. 
+In **C-Language**, we have the `scanf()` function to take input from the user.
+
+```c
+scanf("%d", &someInteger);
+```
+
+As we know, must include **Standard Input-Output** library as `#include<stdio.h>` to have any input and output operation.
+
+So this is how the program looks like
+
+```c
+#include <stdio.h>
+int a;
+int main()
+{
+  printf("Enter a number: ");
+  scanf("%d", &a);  
+  printf("Number = %d",a);
+  return 0;
+}
+```
+
+What's happening here?
+
+  1. **`int a;`**, we have declared a variable.
+
+  > Note: declaration can be done anywhere. 
+    But if we declare outside of the function then the variable can be used in whole over the program.
+    If we declare it in a function then the variable can be accessed in that particular function.
+
+  2. **`scanf("%d", &a)`**, Simply we can say it that the program is scanning the input given by the user. 
+  **%d** is `int` format specifier.
+
+  > Note: `&` is mandatory in `scanf()`. 
+  It means the value entered by the user is storing in the address of declared variable `a`.
+
+  3. After scanning the input, the program will print the value of `a` taken from the user.
+
+  So the output will be this
+
+  ```
+  Enter a number: 10
+  Number = 10
+  ```

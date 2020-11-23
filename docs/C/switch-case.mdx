@@ -1,0 +1,127 @@
+---
+title: Switch Case
+---
+
+Switch case is pretty similar to `if...else...if` ladder.
+The expressions are compared like `if` statement does.
+
+- If it matches, the code bolck will run until it finds `break`.
+
+- If it doesn't match, the expression will be moving to next expression.
+
+Eg: Let us try operations.
+
+```c
+#include <stdio.h>
+
+int main() {
+    char operator;
+    int n1, n2;
+
+    printf("Enter an operator (+, -, *, /): \n");
+    printf("1. Addition(+)\n2. Subtraction(-)\n3. Multiplication(*)\n");
+    scanf("%c", &operator);
+    printf("Enter two numbers: \n");
+    scanf("%d %d",&n1, &n2);
+
+    switch(operator)
+    {
+        case '+':
+            printf("Sum is %d", n1+n2);
+            break;
+
+        case '-':
+            printf("Difference is %d", n1-n2);
+            break;
+
+        case '*':
+            printf("Product is %d", n1*n2);
+            break;
+
+        // operator doesn't match
+        default:
+            printf("Sorry! operator is not correct");
+    }
+    return 0;
+}
+```
+
+- This is the output
+
+    correct output
+
+```
+Enter an operator (+, -, *, /): 
+1. Addition(+)
+2. Subtraction(-)
+3. Multiplication(*)
++
+Enter two numbers: 
+1
+2
+Sum is 3
+```
+
+  Incorrect output
+
+```
+Enter an operator (+, -, *, /): 
+1. Addition(+)
+2. Subtraction(-)
+3. Multiplication(*)
+^
+Enter two numbers: 
+1
+2
+Sorry! operator is not correct
+```
+
+> If you want to ask the question again, write the cases in a function and call the function.
+```c
+void cases(){
+    char operator;
+    int n1, n2;
+    printf("Enter an operator (+, -, *, /): \n");
+    printf("1. Addition(+)\n2. Subtraction(-)\n3. Multiplication(*)\n");
+    scanf("%c", &operator);
+    printf("Enter two numbers: \n");
+    scanf("%d %d",&n1, &n2);
+    switch(operator)
+    {
+        case '+':
+            printf("Sum is %d", n1+n2);
+            break;
+        case '-':
+            printf("Difference is %d", n1-n2);
+            break;
+        case '*':
+            printf("Product is %d", n1*n2);
+            break;
+        // operator doesn't match
+        default:
+            printf("Sorry! operator is not correct\n");
+            // If the choise is incorrect it will again call the function.
+            // This will be a loop till you give correct operation.
+            cases();
+    }
+}
+```
+Call this when ever you want.
+```c
+#include<stdio.h>
+//----- Write the cases function here -----//
+int main(){
+    cases();
+    return 0;
+}
+```
+
+:::caution
+1. `break` is mandatory when using switch cases, else the rest of the code will also keep running.
+`break` is similarly like `return`, But `return` returns some value where `break` doesn't.
+
+2. `default` case is not mandatory.
+
+3. You can assume `case` as `if` condition and `default` as `else` statement. Where `if-else` will have `return`
+and `switch-cases` will have `break`.
+:::
