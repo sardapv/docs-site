@@ -33,7 +33,7 @@ function Home() {
                   </p>
                 </div>
                 <div className="col">
-                  <a href='/docs/c/intro'>
+                  <a href='/docs/C/get-started'>
                     <img height='150'
                       src={useBaseUrl('img/c.svg')}
                       alt="C programming language"/>
@@ -46,7 +46,7 @@ function Home() {
             <div class="container">
               <div class="row">
                 <div className="col">
-                  <a href='/docs/py/intro'>
+                  <a href='/docs/python/get-started'>
                     <img height='150'
                       src={useBaseUrl('img/python.svg')}
                       alt="Python"/>
@@ -73,7 +73,7 @@ function Home() {
                   <br></br>
                 </div>
                 <div className="col">
-                  <a href='/docs/flutter/get-started'>
+                  <a href='/docs/Flutter/get-started'>
                     <img height='150'
                       src={useBaseUrl('img/flutter.svg')}
                       alt="Flutter"/>

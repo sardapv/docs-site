@@ -1,4 +1,4 @@
 ---
+title: Brief Intro
 id: get-started
-title: intro
 ---

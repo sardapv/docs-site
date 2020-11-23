@@ -49,7 +49,7 @@ module.exports = {
           items: [
             {
               label: 'C',
-              to: 'docs/C/intro',
+              to: 'docs/C/get-started',
             },
             {
               label: 'Flutter',
