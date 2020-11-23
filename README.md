@@ -8,7 +8,7 @@
   <a href="https://github.com/yahu1031/docs-site/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/yahu1031/docs-site/blob/master/LICENSE" target="_blank">
+  <a href="https://github.com/yahu1031/docs-site/blob/main/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/yahu1031/free-learn" />
   </a>
   <a href="https://twitter.com/minnu6931" target="_blank">
@@ -56,7 +56,7 @@ npm run test
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/yahu1031/docs-site/issues). You can also take a look at the [contributing guide](https://github.com/yahu1031/docs-site/blob/master/CONTRIBUTING.md).
-Every single contribution is very valuble.
+Every single contribution is very valuable.
 
 ## Show your support
 
