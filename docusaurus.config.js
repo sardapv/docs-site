@@ -3,7 +3,7 @@ const courses = require("./docs/courses.json");
 module.exports = {
   title: 'Free Learn',
   tagline: 'Learn for free.',
-  url: 'https://free-learn.vercel.app/',
+  url: 'https://freelearn.vercel.app/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.ico',
