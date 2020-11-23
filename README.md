@@ -14,7 +14,7 @@
   <a href="https://twitter.com/minnu6931" target="_blank">
     <img alt="Twitter: minnu6931" src="https://img.shields.io/twitter/follow/minnu6931.svg?style=social" />
   </a>
-  <a href="" target="_blank">
+  <a href="https://instagram.com/_son_of_raghava.rao_" target="_blank">
 <img alt="Instagram: _son_of_raghava.rao_" src="https://img.shields.io/badge/instagram-%40__son__of__raghava.rao__-red?style=social&logo=instagram" />
   </a>
 </p>
