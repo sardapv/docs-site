@@ -12,7 +12,7 @@ module.exports = {
   themeConfig: {
     prism: {
       additionalLanguages: ['dart'],
-      darkTheme: require('prism-react-renderer/themes/nightOwl'),
+      darkTheme: require('prism-react-renderer/themes/Palenight'),
     },
     navbar: {
       title: 'Free Learn',
@@ -52,6 +52,10 @@ module.exports = {
               to: 'docs/C/get-started',
             },
             {
+              label: 'Python',
+              to: 'docs/Python/get-started',
+            },
+            {
               label: 'Flutter',
               to: 'docs/Flutter/get-started',
             },
@@ -66,7 +70,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/yahu1031/',
+              href: 'https://github.com/yahu1031/docs-site',
             },
           ],
         },
@@ -93,7 +97,7 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        // themes: ['@docusaurus/theme-classic', '@docusaurus/theme-live-codeblock'],
+        themes: ['@docusaurus/theme-classic', '@docusaurus/theme-live-codeblock'],
       },
     ],
   ],

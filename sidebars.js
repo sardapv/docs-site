@@ -1,8 +1,8 @@
 module.exports = {
-  someSidebar: {
-    Docusaurus: ['doc1', 'doc2', 'doc3'],
-    Features: ['mdx'],
-  },
+  // someSidebar: {
+  //   Docusaurus: ['doc1', 'doc2', 'doc3'],
+  //   Features: ['mdx'],
+  // },
   cSildeBars: {
     'C-Language': [
       "C/get-started",
