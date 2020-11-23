@@ -8,8 +8,8 @@
   <a href="https://github.com/yahu1031/docs-site/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/yahu1031/docs-site/blob/main/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/yahu1031/free-learn" />
+  <a href="https://img.shields.io/github/license/yahu1031/docs-site" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/yahu1031/docs-site" />
   </a>
   <a href="https://twitter.com/minnu6931" target="_blank">
     <img alt="Twitter: minnu6931" src="https://img.shields.io/twitter/follow/minnu6931.svg?style=social" />
