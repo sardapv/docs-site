@@ -16,7 +16,8 @@ module.exports = {
   organizationName: 'yahu1031', // Usually your GitHub org/user name.
   projectName: 'docs-site', // Usually your repo name.,
   themeConfig: {
-    image: 'img/logo.svg',
+    image: 'img/logo.png',
+    og: 'img/logo.png',
     prism: {
       additionalLanguages: ['dart'],
       darkTheme: require('prism-react-renderer/themes/palenight'),
