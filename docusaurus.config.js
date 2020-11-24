@@ -5,11 +5,18 @@ module.exports = {
   tagline: 'Learn for free.',
   url: 'https://freelearn.vercel.app/',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'error',
+  // titleDelimiter: '🦖',
+  onBrokenMarkdownLinks: 'error',
+  baseUrlIssueBanner: true,
+  onDuplicateRoutes:'log',
+  noIndex: true,
   favicon: 'img/favicon.ico',
+  githubHost:'yahu1031',
   organizationName: 'yahu1031', // Usually your GitHub org/user name.
-  projectName: 'docs-site', // Usually your repo name.
+  projectName: 'docs-site', // Usually your repo name.,
   themeConfig: {
+    image: 'img/logo.png',
     prism: {
       additionalLanguages: ['dart'],
       darkTheme: require('prism-react-renderer/themes/palenight'),
@@ -20,7 +27,7 @@ module.exports = {
       logo: {
         alt: 'Free Learn Logo',
         src: "img/logo.svg",
-        srcDark: 'img/logo.svg',
+        srcDark: 'img/whiteLogo.svg',
       },
       items: [
         {
@@ -66,7 +73,7 @@ module.exports = {
           items: [
             {
               label: 'Discord',
-              href: 'https://discord.gg/g2bCyKYH9Z',
+              href: 'https://discord.gg/FVfvtfPbjq',
             },
             {
               label: 'GitHub',

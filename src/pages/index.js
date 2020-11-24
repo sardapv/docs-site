@@ -12,11 +12,19 @@ function Home() {
   return (
     <Layout
       title={`Home`}
-      description="Learn C, Python, Flutter For free.">
+      description="Learn C, Python, Flutter For free."
+      img="">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <div class="row">
+            <div className="col">
+              <img src={useBaseUrl('img/whiteLogo.svg')} height="100"/>
+            </div>
+            <div className="col">
+              <h1 className="hero__title">{siteConfig.title}</h1>
+              <p className="hero__subtitle">{siteConfig.tagline}</p>
+            </div>
+          </div>
         </div>
       </header>
       <main>

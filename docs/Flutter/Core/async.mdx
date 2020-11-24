@@ -2,6 +2,7 @@
 title: Async
 id: async
 ---
+
 ## What is Async? ##
 
 Support for asynchronous programming, with classes such as Future and Stream.
@@ -157,4 +158,55 @@ Data returned from contentText function is - Hello World
 Exited
 ```
 
-Well done buddy you learned Asynchronous function finally :wink:.
+Well done buddy, you learned Asynchronous function finally :wink:.
+
+## Using Stream ##
+
+**Stream** is similar to [Future]('/docs/Flutter/Core/async#using-future'), 
+A sequence/flow of asynchronous events.
+
+coming soon...
+
+<!-- 
+Let's learn it with an example.
+
+```java title="main.dart"
+import "dart:async";
+
+class Counter{
+  final StreamController _controller = StreamController();
+  int i = 1;
+  int n =0;
+
+  counting(){
+    Timer.periodic(Duration(milliseconds: 500), (timer){
+      _controller.sink.add(i);
+      i += 1;
+      n +=1;
+      if(n>5){
+        timer.cancel();
+        _controller.sink.close();
+      }
+    });
+  }
+  Stream<int> get stream => _controller.stream;
+}
+
+void main(){
+  final number = Counter().stream;
+
+  final numSubscribe = number.listen((data){
+    print('data');
+  },
+  onError(e){
+    print("Error : $e");
+  },
+  onDone(data){
+    print(data);
+  });
+}
+```
+
+:::caution
+Stream can't and won't listen more than once.
+::: -->

@@ -36,6 +36,12 @@
   width: 100px;
 }
 
+.centerVert{
+  vertical-align: middle;
+  align-items: center;
+  align-content: center;
+}
+
 .centerText {
   text-align: center;
 }
