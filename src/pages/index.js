@@ -13,7 +13,7 @@ function Home() {
     <Layout
       title={`Home`}
       description="Learn C, Python, Flutter For free."
-      img="">
+      img={useBaseUrl("img/logo.png")}>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <div class="row">

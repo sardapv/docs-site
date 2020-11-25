@@ -3,7 +3,7 @@ const courses = require("./docs/courses.json");
 module.exports = {
   title: 'Free Learn',
   tagline: 'Learn for free.',
-  url: 'https://freelearn.vercel.app/',
+  url: 'https://freelearn.vercel.app',
   baseUrl: '/',
   onBrokenLinks: 'error',
   // titleDelimiter: '🦖',
@@ -18,6 +18,7 @@ module.exports = {
   themeConfig: {
     image: 'img/logo.png',
     og: 'img/logo.png',
+    
     prism: {
       additionalLanguages: ['dart'],
       darkTheme: require('prism-react-renderer/themes/palenight'),
