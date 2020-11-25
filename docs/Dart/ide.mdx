@@ -1,0 +1,78 @@
+---
+title: Setup IDEs
+id: ide
+---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Setup IDEs
+
+You can code dart with any text editors which have support with dart extension/plugin/package.
+These extension/plugin/package provide you with dart IntelliSense, syntax highlighting, 
+run & debug support, and more.
+
+### Setting up IDEs ###
+
+<Tabs
+  defaultValue="android studios"
+  values={[
+    { label: 'Android Studios', value: 'android studios', },
+    { label: 'VS Code', value: 'vscode', },
+  ]}
+>
+<TabItem value="android studios">
+
+<h3>Install Android Studios</h3>
+
+<img src={useBaseUrl('/img/logos/as.png')} height="60" />
+
+Download [Android Studios](https://developer.android.com/studio) with version 3.0 or above.
+
+you can also use 
+
+<img src={useBaseUrl('/img/logos/intelliJ.png')} height="50" />
+
+* [IntelliJ IDEA Community](https://www.jetbrains.com/idea/), version 2017.1 or later
+* [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/), version 2017.1 or later
+
+<img src={useBaseUrl('/img/logos/toolbox.png')} height="50" />
+
+using [JetBrains ToolBox](https://www.jetbrains.com/toolbox-app/)
+
+<h3>Install Dart plugins</h3>
+
+1. Open Android Studio.
+
+2. Open **plugin preferences** (Configure > Plugins).
+
+3. Select the Dart plugin and click **Install**.
+
+4. Click **Restart** when prompted.
+
+:::important
+
+1. Open **plugin preferences** (on MacOS go to `Preferences > Plugins`; on Windows & Linux go to `File > Settings > Plugins`).
+
+2. Go to **Marketplace** and search for the Dart plugin to install.
+:::
+
+</TabItem>
+
+<TabItem value="vscode">
+
+<h3>Install VS Code</h3>
+
+<img src={useBaseUrl('/img/logos/vscode.png')} height="60" />
+
+Download the latest [Visual Studio Code](https://code.visualstudio.com/download).
+
+<h3>Install the Dart extension</h3>
+
+Open extension using **Ctrl+Shift+X**.
+
+Search for Dart extension and install it.
+
+</TabItem>
+
+</Tabs>

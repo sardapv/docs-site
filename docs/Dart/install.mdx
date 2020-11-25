@@ -1,0 +1,120 @@
+---
+title: Installation
+id: install
+---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Installation #
+
+### System Requirements : ###
+
+<Tabs
+  defaultValue="windows"
+  groupId="ides"
+  className="unique-tabs"
+  values={[
+    { label: 'Windows', value: 'windows', },
+    { label: 'MacOS', value: 'macos', },
+    { label: 'Linux', value: 'linux', },
+  ]}
+>
+<TabItem value="windows">
+
+<img height='50' src={useBaseUrl('/img/logos/windows.svg')}/>
+
+**Windows 7/8/10** (64-bit / ia32)<br />
+**Disk Space:** 1.5GB<br />
+
+</TabItem>
+
+<TabItem value="macos">
+
+<img height='50' src={useBaseUrl('/img/logos/apple.svg')}/>
+
+**MacOS** (64-bit)<br />
+**Disk Space:** 3GB<br />
+
+</TabItem>
+<TabItem value="linux">
+
+<img height='50' src={useBaseUrl('/img/logos/linux.svg')}/>
+
+**Linux** (64-bit / ia32 / ARMv7 / ARMv8(ARM64))<br />
+**Disk Space:** 1GB<br />
+
+</TabItem>
+</Tabs>
+
+### Steps to install ###
+
+- Head over to [Dart Archives](https://dart.dev/tools/sdk/archive#stable-channel).
+
+- Download the latest Dart SDK depending on your Device configs.
+
+- UnZip the package and save it somewhere safely :joy:.
+
+- Go to the bin folder and copy the path where you are currently and add it to the environment variable.
+
+### Setup your dart path ###
+
+<Tabs
+  groupId="ides"
+  className="unique-tabs"
+  defaultValue="windows"
+  values={[
+    { label: 'Windows', value: 'windows', },
+    { label: 'MacOS', value: 'macos', },
+    { label: 'Linux', value: 'linux', },
+  ]}
+>
+<TabItem value="windows">
+
+Now set the dart path to your system environment. 
+
+Press "**<img height='13' src={useBaseUrl('/img/logos/windows.svg')}/> + R**"
+and run `SystemPropertiesAdvanced.exe` to open system properties
+
+**<p align="center">OR</p>**
+
+Press <img height='13' src={useBaseUrl('/img/logos/windows.svg')}/> key and search for `environment` and choose "**Edit the system environment variables**".
+
+Click the "Environment Variables..." button in the bottom-right. In the user variables select `path` and click on **edit** to edit/manipulate the path.
+If you see **Browse Directory...** and **Browse File** option then do this
+  * In **Variable value**, continue with the existing paths this way `existing_paths;your_dart_bin_path`.
+  **<p align="center">Else</p>**
+  * Add new **Variable value** with the path `your_dart_bin_path`.
+
+Click **ok** for all tabs that appear there and restart the system.
+
+</TabItem>
+<TabItem value="macos">
+
+Now update the dart path to your system environment.
+
+Open your current terminal profile. If bash is your current/default terminal then open **`$HOME/.bash_profile`** or **`$HOME/.bashrc`**, If zsh is your current/default terminal then open **`$HOME/.zshrc`** .
+
+After opening the file add the following line at bottom of the whole content
+
+> **Note:** Update this **[Dir_path_where_bin_exists]** with the path of your **dart/bin** directory.
+
+```bash
+export PATH="$PATH:[Dir_path_where_bin_exists]"
+```
+</TabItem>
+<TabItem value="linux">
+
+Now update the dart path to your system environment.
+
+Open your current terminal profile. If bash is your current/default terminal then open **`$HOME/.bash_profile`** or **`$HOME/.bashrc`**.
+
+After opening the file add the following line at bottom of the whole content
+
+> **Note:** Update this **[Dir_path_where_bin_exists]** with the path of your **dart/bin/** directory.
+
+```bash
+export PATH="$PATH:[Dir_path_where_bin_exists]"
+```
+</TabItem>
+</Tabs>

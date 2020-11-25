@@ -35,6 +35,28 @@ module.exports = {
       'Python/get-started',
     ]
   },
+  dartSlideBars: {
+    Dart: [
+      'Dart/get-started',
+      {
+        type: "category",
+        label: "Get Started",
+        collapsed: true,
+        items: [
+          "Dart/install",
+          "Dart/ide",
+        ],
+      },
+      {
+        type: "category",
+        label: "Introduction",
+        collapsed: true,
+        items: [
+          "Dart/basics",
+        ],
+      },
+    ]
+  },
   flutterSlideBasr: {
     Flutter: [
       "Flutter/get-started",

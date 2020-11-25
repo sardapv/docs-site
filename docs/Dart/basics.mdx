@@ -1,0 +1,68 @@
+---
+title: Basics
+id: basics
+---
+
+# Basics
+
+:::caution New Here?
+If you are completely new to the programming world,
+Then we would recommend you to jump over to [C-Language](/docs/C/).
+Cause Dart is very similar to C-Lang code structure, 
+And also we have covered most of the content helpful to programming 
+languages.
+:::
+
+## Input / Output ##
+
+Input and output are pretty easy in the dart. Other than a console application,
+Inputs aren't used much.
+
+### Output ###
+
+`print()` and `stdout.write()` are the output statements we generally in the dart.
+
+```dart title="main.js"
+import "dart:io";
+
+void main(){
+    stdout.write('Hello world');
+}
+```
+
+```console title="Output"
+Hello world
+```
+
+### Input ###
+
+To take an input we must import the `dart:io` library. 
+`stdin.readLineSync()` is the input statement in dart.
+
+:::note NOTE
+- `stdin` and `stdout` needs dart's input-ouput library(`dart:io`).
+
+- `stdin` only reads String values
+:::
+
+```dart
+import 'dart:io';
+
+void main() {
+  stdout.write("Enter a number: ");
+  // Reading the user input as a string.
+  var string = stdin.readLineSync();
+  // Trying to Parse the string into int as num.
+  var num = int.tryParse(string);
+  // If the num is null
+  if (num == null) {
+    return print("That's not a valid integer. :(");
+  }
+  // if the num is not null(else statement).
+  else {
+    var square = num * num;
+    // returning the result as square if it is a success.
+    return print("The square of your number is $square!");
+  }
+}
+```

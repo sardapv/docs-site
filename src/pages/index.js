@@ -12,8 +12,9 @@ function Home() {
   return (
     <Layout
       title={`Home`}
-      description="Learn C, Python, Flutter For free."
-      img={useBaseUrl("img/logo.png")}>
+      description="Learn C, Python, Dart, Flutter For free. This is an open-source site, 
+      Anyone can contribute."
+      img={useBaseUrl("img/metaImage.png")}>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <div class="row">
@@ -41,7 +42,7 @@ function Home() {
                   </p>
                 </div>
                 <div className="col">
-                  <a href='/docs/C/get-started'>
+                  <a href='/docs/C/'>
                     <img height='150'
                       src={useBaseUrl('img/c.svg')}
                       alt="C programming language"/>
@@ -54,7 +55,7 @@ function Home() {
             <div class="container">
               <div class="row">
                 <div className="col">
-                  <a href='/docs/Python/get-started'>
+                  <a href='/docs/Python/'>
                     <img height='150'
                       src={useBaseUrl('img/python.svg')}
                       alt="Python"/>
@@ -75,17 +76,37 @@ function Home() {
             <div class="container">
               <div class="row">
                 <div className="col">
-                  <h2>Flutter</h2>
-                  <b>Flutter</b> is Google's UI toolkit for crafting natively
-                  compiled applications for mobile, web, and desktop from a single codebase.
+                  <h2>Dart</h2>
+                  Dart is a client-optimized programming language for apps on multiple platforms. 
+                  It is developed by Google and is used to build mobile, desktop, server, and web applications. 
+                  Dart can compile to either native code or JavaScript.
                   <br></br>
                 </div>
                 <div className="col">
-                  <a href='/docs/Flutter/get-started'>
+                  <a href='/docs/Dart/'>
+                    <img height='150'
+                      src={useBaseUrl('img/dart.svg')}
+                      alt="Dart"/>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.detailedFeatures}>
+            <div class="container">
+              <div class="row">
+                <div className="col">
+                  <a href='/docs/Flutter/'>
                     <img height='150'
                       src={useBaseUrl('img/flutter.svg')}
                       alt="Flutter"/>
                   </a>
+                </div>
+                <div className="col">
+                  <h2>Flutter</h2>
+                  <b>Flutter</b> is Google's UI toolkit for crafting natively
+                  compiled applications for mobile, web, and desktop from a single codebase.
+                  <br></br>
                 </div>
               </div>
             </div>

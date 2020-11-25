@@ -1,4 +1,4 @@
-const courses = require("./docs/courses.json");
+const courses = require('./docs/courses.json');
 
 module.exports = {
   title: 'Free Learn',
@@ -6,19 +6,17 @@ module.exports = {
   url: 'https://freelearn.vercel.app',
   baseUrl: '/',
   onBrokenLinks: 'error',
-  // titleDelimiter: '🦖',
   onBrokenMarkdownLinks: 'error',
   baseUrlIssueBanner: true,
   onDuplicateRoutes:'log',
   noIndex: true,
   favicon: 'img/favicon.ico',
   githubHost:'yahu1031',
-  organizationName: 'yahu1031', // Usually your GitHub org/user name.
-  projectName: 'docs-site', // Usually your repo name.,
+  organizationName: 'yahu1031',
+  projectName: 'docs-site',
   themeConfig: {
-    image: 'img/logo.png',
-    og: 'img/logo.png',
-    
+    image: 'img/metaImage.png',
+    og: 'img/metaImage.png',
     prism: {
       additionalLanguages: ['dart'],
       darkTheme: require('prism-react-renderer/themes/palenight'),
@@ -28,23 +26,24 @@ module.exports = {
       hideOnScroll: true,
       logo: {
         alt: 'Free Learn Logo',
-        src: "img/logo.svg",
+        src: 'img/logo.svg',
         srcDark: 'img/whiteLogo.svg',
       },
       items: [
         {
-          activeBasePath: "docs",
-          label: "Tutorials",
-          position: "left",
-          items: [ // adding items will create a dropdown
+          activeBasePath: 'docs',
+          label: 'Tutorials',
+          position: 'left',
+          items: [
+            // adding items will create a dropdown
             {
               label: courses[0],
-              to: `docs/${courses[0]}/get-started`,
-              activeBaseRegex: `docs/(?!${courses.join("|")}|next)`,
+              to: `docs/${courses[0]}/`,
+              activeBaseRegex: `docs/(?!${courses.join('|')}|next)`,
             },
             ...courses.slice(1).map((course) => ({
               label: course,
-              to: `docs/${course}/get-started`,
+              to: `docs/${course}/`,
             })),
           ],
         },
@@ -58,15 +57,19 @@ module.exports = {
           items: [
             {
               label: 'C',
-              to: 'docs/C/get-started',
+              to: 'docs/C/',
             },
             {
               label: 'Python',
-              to: 'docs/Python/get-started',
+              to: 'docs/Python',
+            },
+             {
+              label: 'Dart',
+              to: 'docs/Dart/',
             },
             {
               label: 'Flutter',
-              to: 'docs/Flutter/get-started',
+              to: 'docs/Flutter/',
             },
           ],
         },
@@ -87,6 +90,7 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Free Learn, Inc. Built with Docusaurus.`,
     },
   },
+  themes:['@docusaurus/theme-live-codeblock'],
   presets: [
     [
       '@docusaurus/preset-classic',

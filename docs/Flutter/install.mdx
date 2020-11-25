@@ -6,6 +6,8 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+# Installation #
+
 <Tabs
   defaultValue="windows"
   values={[
@@ -33,6 +35,7 @@ Create a dir in `C:\` with the name of `src` and now open your command prompt(cm
 cd src\
 git clone https://github.com/flutter/flutter.git -b stable --depth 1
 ```
+
 <h3>Setup your flutter path</h3>
 
 Now set the flutter path to your system environment. 
@@ -50,7 +53,7 @@ If you see **Browse Directory...** and **Browse File** option then do this
   **<p align="center">Else</p>**
   * Add new **Variable value** with the path `C:\src\flutter\bin\`.
 
-Click **ok** for all tabs appear there and restart the system.
+Click **ok** for all tabs that appear there and restart the system.
 
 <h3>Checking the flutter command</h3>
 
@@ -68,49 +71,6 @@ Now upgrade the flutter package you have cloned.
 flutter upgrade
 ```
 This will download the required packages.
-
-This will be the output
-
-```log
-PS C:\Users> flutter upgrade
-Checking the Dart SDK version...
-Downloading Dart SDK from Flutter engine a1440ca392ca23e874a105c5f3248b495bd0e247...
-Unzipping Dart SDK...
-Building a flutter tool...
-Running pub upgrade...
-
-  ╔════════════════════════════════════════════════════════════════════════════╗
-  ║                 Welcome to Flutter! - https://flutter.dev                  ║
-  ║                                                                            ║
-  ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
-  ║                                                                            ║
-  ║ Flutter tool analytics are not sent on the very first run. To disable      ║
-  ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
-  ║ setting, type 'flutter config'. If you opt-out of analytics, an opt-out    ║
-  ║ the event will be sent, and then no further information will be sent by    ║
-  ║ the Flutter tool.                                                          ║
-  ║                                                                            ║
-  ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
-  ║ Note: The Google Privacy Policy describes how data is handled in this      ║
-  ║ service.                                                                   ║
-  ║                                                                            ║
-  ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
-  ║ crash reports to Google.                                                   ║
-  ║                                                                            ║
-  ║ Read about data we send with crash reports:                                ║
-  ║ https://flutter.dev/docs/reference/crash-reporting                         ║
-  ║                                                                            ║
-  ║ See Google's privacy policy:                                               ║
-  ║ https://policies.google.com/privacy                                        ║
-  ╚════════════════════════════════════════════════════════════════════════════╝
-
-
-Flutter is already up to date on channel stable
-Flutter 1.22.3 • channel stable • https://github.com/flutter/flutter.git
-Framework • revision 8874f21e79 (2 weeks ago) • 2020-10-29 14:14:35 -0700
-Engine • revision a1440ca392
-Tools • Dart 2.10.3
-```
 
 </TabItem>
 
