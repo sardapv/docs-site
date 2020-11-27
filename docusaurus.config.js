@@ -10,7 +10,6 @@ module.exports = {
   //   locales: ['en', 'fr'],
   // },
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   baseUrlIssueBanner: true,
   onDuplicateRoutes:'log',
   noIndex: true,

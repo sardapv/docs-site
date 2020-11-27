@@ -1,13 +1,14 @@
 ---
 title: Switch Case
+image: /img/C/metaC.png
 ---
 
-Switch case is pretty similar to `if...else...if` ladder.
-The expressions are compared like `if` statement does.
+The switch case is pretty similar to the `if...else...if` ladder.
+The expressions are compared like the `if` statement does.
 
-- If it matches, the code bolck will run until it finds `break`.
+- If it matches, the code block will run until it finds `break`.
 
-- If it doesn't match, the expression will be moving to next expression.
+- If it doesn't match, the expression will be moving to the next expression.
 
 Eg: Let us try operations.
 
@@ -40,7 +41,7 @@ int main() {
 
         // operator doesn't match
         default:
-            printf("Sorry! operator is not correct");
+            printf("Sorry! The operator is not correct");
     }
     return 0;
 }
@@ -73,7 +74,7 @@ Enter an operator (+, -, *, /):
 Enter two numbers: 
 1
 2
-Sorry! operator is not correct
+Sorry! The operator is not correct
 ```
 
 > If you want to ask the question again, write the cases in a function and call the function.
@@ -100,8 +101,8 @@ void cases(){
         // operator doesn't match
         default:
             printf("Sorry! operator is not correct\n");
-            // If the choise is incorrect it will again call the function.
-            // This will be a loop till you give correct operation.
+            // If the choice is incorrect it will again call the function.
+            // This will be a loop till you give the correct operation.
             cases();
     }
 }
