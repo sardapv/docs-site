@@ -1,6 +1,8 @@
 ---
 title: Functions
+custom_edit_url: 
 ---
+
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
@@ -63,6 +65,8 @@ int main(){
 	return 0;
 }
 ```
+
+Let us learn how to create and use a function with the below example.
 </TabItem>
 <TabItem value="with func">
 
@@ -71,8 +75,8 @@ This code is with a function.
 ```c
 #include<stdio.h>
 
-int job1(){
-		//-----job1 start-----//
+void job1(){
+	//-----job1 start-----//
 				|
 				|
 			some code
@@ -82,7 +86,7 @@ int job1(){
 	return 0;
 }
 
-int job2(){
+void job2(){
 	//-----job2 start-----//
 				|
 				|
@@ -98,10 +102,10 @@ int main(){
 	return 0;
 }
 ```
+So, What's actually happening there? Well, let it be more clear with the example below.
+
 </TabItem>
 </Tabs>
-
-So, What's actually happening there? Well, let it be more clear
 
 **<ins>Eg :</ins>**
 
@@ -164,7 +168,7 @@ We have `add()` which takes 2 arguments. We follow how the code runs/executes fo
 
  * As `sum()` function needs 2 `int` variables, the values passed will be assigned to `a`, `b`.
 
- * Now `a + b` is the [operation](/docs/C/operations) and got result will be assigned to `res` and returned.
+ * Now `a + b` is the [operation](operations) and got result will be assigned to `res` and returned.
 
  * The returned value of `res` will be assigned to `sum` in `main()` function.
 
@@ -177,4 +181,60 @@ Enters two numbers for addition:
 5
 6
 a + b = 11
+```
+
+### Recursive function ###
+
+A function that which calls it-self.
+
+Eg: 
+
+```c title="example function"
+#include <stdio.h>
+
+void func(int n);
+
+void funcA(int n){
+	int i=1;
+	if(n<=5)
+	{
+	    printf("calling function A %d time\n",n);
+    	n += i;
+	    funcA(n);
+	}
+}
+
+int main() {
+    printf("Hello world\n");
+    funcA(1);    
+    return 0;
+}
+```
+
+- From the above code, We can see creating a constructor for the function `funcA()` cause 
+we are passing arguments to the function(int n).
+
+- As we said before `a += b` results `a = a + b`. We are adding the `i` value to the current `n` value in function.
+
+- We call the same function inside it-self. As `funcA()` needs an `int` argument to be passed we pass the `n` value.
+
+- When the execution reaches `funcA()`, It checks the n value and validates the `if` condition.
+
+- If the `if` condition satisfies, Then the code block has a function `funcA()`. So, it keeps calling again.
+
+- This leads to a small function loop called recursion.
+
+- When the main function executes, It calls `funcA(1)`.
+
+- On executing the function, it has the same function of it-self.
+
+The output of the above code is
+
+```
+Hello world
+calling function A 1 time
+calling function A 2 time
+calling function A 3 time
+calling function A 4 time
+calling function A 5 time
 ```

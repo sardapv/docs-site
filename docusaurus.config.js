@@ -5,8 +5,12 @@ module.exports = {
   tagline: 'Learn for free.',
   url: 'https://freelearn.vercel.app',
   baseUrl: '/',
-  onBrokenLinks: 'error',
-  onBrokenMarkdownLinks: 'error',
+  // i18n: {
+  //   defaultLocale: 'en',
+  //   locales: ['en', 'fr'],
+  // },
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   baseUrlIssueBanner: true,
   onDuplicateRoutes:'log',
   noIndex: true,
@@ -17,6 +21,14 @@ module.exports = {
   themeConfig: {
     image: 'img/metaImage.png',
     og: 'img/metaImage.png',
+    announcementBar: {
+      id: 'support_us',
+      content:
+        '📝 We are looking for someone who can contribute documentation for languages we have, please <a rel="noopener noreferrer" href="/topics/C">click here</a><br/><b>#spread_knowledge</b>',
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+      isCloseable: false,
+    },
     prism: {
       additionalLanguages: ['dart'],
       darkTheme: require('prism-react-renderer/themes/palenight'),
@@ -31,6 +43,18 @@ module.exports = {
       },
       items: [
         {
+          to: '/topics/C',
+          label: 'Dev Topics',
+          position: 'right',
+          activeBaseRegex: '/topics/',
+        },
+        // {
+        //   to: '/Login',
+        //   label: 'Login',
+        //   position: 'right',
+        //   activeBaseRegex: '/login/',
+        // },
+        {
           activeBasePath: 'docs',
           label: 'Tutorials',
           position: 'left',
@@ -40,6 +64,8 @@ module.exports = {
               label: courses[0],
               to: `docs/${courses[0]}/`,
               activeBaseRegex: `docs/(?!${courses.join('|')}|next)`,
+              showLastUpdateAuthor: true,
+              showLastUpdateTime: true,
             },
             ...courses.slice(1).map((course) => ({
               label: course,
@@ -58,18 +84,26 @@ module.exports = {
             {
               label: 'C',
               to: 'docs/C/',
+              showLastUpdateAuthor: true,
+              showLastUpdateTime: true,
             },
             {
               label: 'Python',
               to: 'docs/Python',
+              showLastUpdateAuthor: true,
+              showLastUpdateTime: true,
             },
              {
               label: 'Dart',
               to: 'docs/Dart/',
+              showLastUpdateAuthor: true,
+              showLastUpdateTime: true,
             },
             {
               label: 'Flutter',
               to: 'docs/Flutter/',
+              showLastUpdateAuthor: true,
+              showLastUpdateTime: true,
             },
           ],
         },
@@ -91,6 +125,28 @@ module.exports = {
     },
   },
   themes:['@docusaurus/theme-live-codeblock'],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'topics',
+        path: 'topics',
+        routeBasePath: 'topics',
+        sidebarPath: require.resolve('./topics.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'login',
+    //     path: 'login',
+    //     routeBasePath: 'login',
+    //     sidebarPath: require.resolve('./login.js'),
+    //   },
+    // ]
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',

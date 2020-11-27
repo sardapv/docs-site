@@ -26,7 +26,7 @@ functions, arrays, structures, unions, and so on.
 
     Here `items` is an identifier
   
-  > **NOTE:** Identifiers must be different from [keywords](/docs/C/basics#keywords).
+  > **NOTE:** Identifiers must be different from [keywords](basics#keywords).
 
 ### Constants ###
 
@@ -41,7 +41,7 @@ Define a variable with a constant value using `const`.
 
 ### Variables ###
 
-A variable is a data storage area(container) to hold data of an [Identifier](/docs/C/basics#identifiers).
+A variable is a data storage area(container) to hold data of an [Identifier](basics#identifiers).
 
   Eg: 
   ```c
@@ -117,11 +117,11 @@ such as an integer and floating-point unit, but is used to represent text rather
 
 #### <ins>bool</ins> ####
 
-A boolean is a data type that can store true or false value.
+A boolean is a data type that can store true or false values.
 
   Eg:
   ```c
-  bool isLoading = flase;
+  bool isLoading = false;
   ```
 
 #### <ins>Enumerated</ins> ####
@@ -159,7 +159,8 @@ Data types are derived from fundamental data types.
 
 #### <ins>Arrays</ins> ####
 
-Arrays can store a fixed-size sequential collection of elements of the same type.
+Arrays can store a fixed-size sequential collection of elements of the same type. In simple words, 
+Collection of data of similar/different data types.
 
   **declaration**
   ```c
@@ -171,6 +172,10 @@ Arrays can store a fixed-size sequential collection of elements of the same type
   char array[5] = {'a', 'b', 'c', 'd', 'e'};
   ```
 
+:::info Arrays
+Usage and types of arrays will be available in [Additional Content](additional)
+:::
+
 #### <ins>Pointers</ins> ####
 
 Special variables that are used to store addresses rather than values.
@@ -180,11 +185,12 @@ Special variables that are used to store addresses rather than values.
   #include <stdio.h>
   int main()
   {
-    int a = 5;
+    int a = 5, *b;
+    b = &a;
     /// This prints the value of `a`
-    printf("a: %d\n", a);
+    printf("value of a: %d\n", *b);
     // This prints the address of `a`
-    printf("address of a: %p", &a);
+    printf("address of a: %p", b);
     return 0;
   }
   ```
@@ -192,6 +198,125 @@ Special variables that are used to store addresses rather than values.
   **Output**
   
   ```
-  a: 5
+  value of a: 5
   address of a: 0x7ffe35fcbf3c
   ```
+
+:::note
+We should declare a pointer with `*`. If you declare a pointer then,
+`*x` will help to store the value, `x` will help to store the address.
+:::
+
+:::info Pointers
+Usage and types of pointers will be available in [Additional Content](additional)
+:::
+### Global Variables ###
+
+Any variable that declared out side a function can be accessed anywhere in the file, called **Global variable**.
+
+Eg:
+```c title="Global variable"
+#include<stdio.h>
+
+int a = 2, b = 3;
+
+int main(){
+  printf("Sum of a and b = %d\n", a+b);
+  function();
+  return 0;
+}
+
+void function(){
+  printf("Value of a : %d\n", a);
+  printf("Value of b : %d\n", b);
+}
+```
+**Output**
+```
+Sum of a and b = 5
+```
+- `a`, `b` are global variables.
+
+### Local Variables ###
+
+Any variable that declared inside a function can be accessed locally in the [function](functions)/method, called **Local variable**.
+
+Eg:
+```c title="Local variable"
+#include<stdio.h>
+
+int main(){
+  int a = 2, b = 3;
+  printf("Sum of a and b = %d\n", a+b);
+  function();
+  return 0;
+}
+
+void function(){
+  printf("Value of a : %d\n", a);
+  printf("Value of b : %d\n", b);
+}
+```
+**Output**
+```console
+D:\Programs\C>gcc basics.c
+basics.c: In function 'main':
+basics.c:6:3: warning: implicit declaration of function 'function' [-Wimplicit-function-declaration]
+    6 |   function();
+      |   ^~~~~~~~
+basics.c: At top level:
+basics.c:10:6: warning: conflicting types for 'function'
+   10 | void function(){
+      |      ^~~~~~~~
+basics.c:6:3: note: previous implicit declaration of 'function' was here
+    6 |   function();
+      |   ^~~~~~~~
+basics.c: In function 'function':
+basics.c:11:31: error: 'a' undeclared (first use in this function)
+   11 |   printf("Value of a : %d\n", a);
+      |                               ^
+basics.c:11:31: note: each undeclared identifier is reported only once for each function it appears in
+```
+
+- The error is because, `a`, `b` are local variables, they can be only accessed in the main function only.
+
+### Static Variables ###
+
+The value of a static variable continues to exist until the end of the program.
+
+Eg:
+
+```c title="Static Variable"
+#include<stdio.h>
+
+int main(){
+  function();
+  function();
+  function();
+  return 0;
+}
+
+void function(){
+  static int a = 1;
+  a += 3;
+  printf("Value of a : %d\n", a);
+}
+```
+
+- we are declaring a static variable `a = 1`. That is incremented with 3.
+
+- When we initially call the function `function()`, the value will be printing as `4`, cause we incremented  it.
+
+- When we call the function again, the value of `a` will be carried as the value we got when that has been incremented i.e, `4`.
+
+- So in the second call the value of `a` becomes `4` and that will be incremented to `4+3`. And this repeats. 
+
+- Until the program exits/ends, the value of `a` will remain the latest value it got.
+
+- Here is the Output
+
+```console title="output"
+Value of a : 4
+Value of a : 7
+Value of a : 10
+```

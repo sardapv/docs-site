@@ -5,16 +5,14 @@ title: Calculator
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Calculator #
-
-In this Chapter we will be covering `StatefulWidget`, Creating a `Widget` and setting States using `setState`.
-Let's get Started...
+In this chapter we will be covering `StatefulWidget`, Creating a `Widget` and setting States using `setState`.
+Let's get started...
 
 ## Aim ##
 
 <img src={useBaseUrl('/img/Flutter/chapter2/calculator.svg')} height="300"/>
 
-From this aim, we meed to create 2 parts first.
+From this aim, we need to create 2 parts first.
 
 1. Text input field.
 
@@ -44,7 +42,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calculator App',
       // This is the theme of the app
-      // and it's primary color is blue.
+      // and it's primary colour is blue.
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -221,7 +219,7 @@ class CustomButtons extends StatelessWidget {
           // By using the Ternary operator we will write a condition.
           // if(buttonColor == null)
           // {
-          //  if you haven't passed any color then this 
+          //  if you haven't passed any colour then this 
           //  will be the default value
           //  Colors.white
           // }

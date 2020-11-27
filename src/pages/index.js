@@ -77,7 +77,7 @@ function Home() {
               <div class="row">
                 <div className="col">
                   <h2>Dart</h2>
-                  Dart is a client-optimized programming language for apps on multiple platforms. 
+                  <b>Dart</b> is a client-optimized programming language for apps on multiple platforms. 
                   It is developed by Google and is used to build mobile, desktop, server, and web applications. 
                   Dart can compile to either native code or JavaScript.
                   <br></br>

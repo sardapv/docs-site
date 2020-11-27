@@ -5,5 +5,12 @@ slug: /TS/
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 
-<img class="center" src={useBaseUrl('/img/TypeScript/logo.svg')}/><br />
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/img/TypeScript/logo.svg'),
+    dark: useBaseUrl('/img/TypeScript/darkLogo.svg'),
+  }}
+/>

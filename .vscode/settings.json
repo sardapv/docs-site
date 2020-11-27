@@ -3,11 +3,14 @@
         "StatefulWidget",
         "all time",
         "cocoapods",
+        "color",
         "contentText",
         "docusaurus",
         "firstapp",
         "fontsize",
+        "funcA",
         "gh-pages",
+        "goto",
         "jsx",
         "live",
         "lockdownd",
@@ -53,4 +56,29 @@
         "source.fixAll.markdownlint": true
     },
     "git.ignoreLimitWarning": true,
+    "grammarly.overrides": [
+        {
+            "files": [
+                "**/docs/Flutter/Chapters/calculator.mdx"
+            ],
+            "config": {
+                "audience": "expert",
+                "dialect": "british",
+                "domain": "technical",
+                "emotions": [
+                    "neutral",
+                    "confident",
+                    "joyful",
+                    "optimistic",
+                    "respectful",
+                    "friendly",
+                    "analytical"
+                ],
+                "goals": [
+                    "describe"
+                ],
+                "emotion": "mild"
+            }
+        }
+    ],
 }

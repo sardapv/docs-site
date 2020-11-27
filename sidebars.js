@@ -1,8 +1,4 @@
 module.exports = {
-  // someSidebar: {
-  //   Docusaurus: ['doc1', 'doc2', 'doc3'],
-  //   Features: ['mdx'],
-  // },
   cSildeBars: {
     'C-Language': [
       "C/get-started",
@@ -14,9 +10,11 @@ module.exports = {
         "C/basics",
         "C/io-statements",
         "C/functions",
-        "C/operations"
+        "C/operations",
+        "C/additional",
         ],
-      }, {
+      },
+      {
         type: "category",
         label: "Conditions and Statements",
         collapsed: true,
@@ -102,5 +100,5 @@ module.exports = {
         ]
       },
     ],
-  }
+  },
 };
